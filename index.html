@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DAVE007 | Executive Furniture</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="logo">DAVE007</div>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-text">
+    <h1>Executive Interior & Exterior Furniture</h1>
+    <p>Premium designs for your home, office, and beyond.</p>
+    <a href="products.html" class="btn">Explore Products</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-contact">
+    <p>📍 Plot 27, Obasanjo-Ijagba road, beside Banuso sawmill, off Idi-Iroko road, Ota, Ogun state, Nigeria.</p>
+    <p>📞 08105279136, 08174969150</p>
+  </div>
+
+  <div class="footer-socials">
+    <a href="https://www.facebook.com/share/16ki5bgvgQ/?mibextid=wwXIfr" target="_blank" class="social facebook">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+    <a href="#" target="_blank" class="social tiktok">
+      <i class="fab fa-tiktok"></i>
+    </a>
+    <a href="#" target="_blank" class="social instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
+  </div>
+
+  <div class="footer-credit">
+    <p>Built by Ozoemelam Kingsley</p>
+  </div>
+</footer>
+
+
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/2348105279136" class="whatsapp-float" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="script.js"></script>
+
+<script>
+  const texts = ["Executive Interior & Exterior Furniture", "Buy from us", "Shop Quality Furniture", "Comfort & Style"];
+  let count = 0;
+  let index = 0;
+  let currentText = "";
+  let letter = "";
+
+  function type() {
+    if (count === texts.length) {
+      count = 0;
+    }
+    currentText = texts[count];
+    letter = currentText.slice(0, ++index);
+
+    document.querySelector(".hero h1", "").textContent = letter;
+    if (letter.length === currentText.length) {
+      count++;
+      index = 0;
+      setTimeout(type, 5000); // Pause before typing next text
+    } else {
+      setTimeout(type, 250);
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", type);
+</script>
+
+</body>
+</html>

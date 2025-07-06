@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+<header class="header-parallax">
+  <div class="logo"> <img src="logo.png" alt="Dave007 Logo"> Dave007</div>
+  <nav class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="products.html">Shop</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<section class="about fade-in">
+  <div class="about-text">
+    <h1>About Us</h1>
+    <p>We are passionate about delivering the best quality products at affordable prices. Our mission is to make online shopping easy and enjoyable for everyone. With years of experience and a dedicated team, we aim to exceed your expectations every day.</p>
+  </div>
+  <div class="about-image">
+    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=500&q=80" alt="Team Profile Picture">
+  </div>
+</section>
+
+<section class="social-media slide-up">
+  <h2>Follow Us</h2>
+  <div class="social-icons">
+    <a href="https://www.facebook.com/share/16ki5bgvgQ/" target="_blank" class="social facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" target="_blank" class="social instagram"><i class="fab fa-instagram"></i></a>
+    <a href="#" target="_blank" class="social tiktok"><i class="fab fa-tiktok"></i></a>
+    <a href="https://wa.me/2348105279136" target="_blank" class="social whatsapp"><i class="fab fa-whatsapp"></i></a>
+  </div>
+</section>
+
+<section class="whatsapp-channel fade-in">
+  <h2>Join Our WhatsApp Channel</h2>
+  <p>Stay updated with our latest products and promotions by joining our WhatsApp channel.</p>
+  <a href="https://wa.me/2348105279136" target="_blank" class="btn whatsapp-btn">Join Now</a>
+</section>
+
+<footer class="fade-in">
+  <div class="footer-contact">
+    <p>📍 Plot 27, Obasanjo-Ijagba road, beside Banuso sawmill, off Idi-Iroko road, Ota, Ogun state, Nigeria.</p>
+    <p>📞 08105279136, 08174969150</p>
+  </div>
+  <div class="footer-socials">
+    <a href="https://www.facebook.com/share/16ki5bgvgQ/?mibextid=wwXIfr" target="_blank" class="social facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" target="_blank" class="social tiktok"><i class="fab fa-tiktok"></i></a>
+    <a href="#" target="_blank" class="social instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://wa.me/2348105279136" target="_blank" class="social whatsapp"><i class="fab fa-whatsapp"></i></a>
+  </div>
+</footer>
+
+<script>
+  window.addEventListener("scroll", () => {
+    document.querySelectorAll('.fade-in').forEach(el => {
+      if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+        el.classList.add('visible');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

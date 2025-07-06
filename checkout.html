@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout - DAVE007</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <!--/ Navbar /-->
+  <header class="navbar">
+    <div class="logo">DAVE007</div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="cart.html">Cart</a>
+      <a href="track.html">Track Order</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="actions">
+      <button id="themeToggle">🌞/🌚</button>
+      <button id="categoryToggle">☰</button>
+    </div>
+  </header>
+
+  <!--/ Checkout Page /-->
+  <main class="checkout-container">
+    <h1>Checkout</h1>
+
+    <section class="order-summary">
+      <h2>Order Summary</h2>
+      <div class="cart-items" id="checkoutItems">
+        <!-- Items will be loaded from localStorage -->
+      </div>
+      <div class="total">
+        <strong>Total:</strong> ₦<span id="checkoutTotal">0</span>
+      </div>
+    </section>
+
+    <section class="user-info">
+      <h2>Delivery Information</h2>
+      <form id="checkoutForm">
+        <input type="text" placeholder="Full Name" required />
+        <input type="tel" placeholder="Phone Number" required />
+        <input type="text" placeholder="Delivery Address" required />
+        <select required>
+          <option value="">Select State</option>
+          <option value="Lagos">Lagos</option>
+          <option value="Abuja">Abuja</option>
+          <option value="PH">Port Harcourt</option>
+          <!-- Add more -->
+        </select>
+        <button type="submit">Confirm Order</button>
+      </form>
+    </section>
+
+    <section class="map-section">
+      <h2>Track Delivery</h2>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126916.15908814994!2d3.325305574772393!3d6.524379302690829!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8c6b2c03f139%3A0x6dfcb0511a2c4177!2sLagos!5e0!3m2!1sen!2sng!4v1719502912345"
+        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </section>
+  </main>
+
+  <!--/ Sticky WhatsApp /-->
+  <div class="sticky-buttons">
+    <a href="https://wa.me/2348105279135" target="_blank" class="sticky-whatsapp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
+</body>
+</html>
