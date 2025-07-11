@@ -2,10 +2,94 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Shop - Dave007</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  <style>
+    /* Carousel styles */
+    .carousel {
+      width: 90%;
+      margin: 40px auto;
+    }
+
+    .product {
+      padding: 20px;
+      background: #fff;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .product img {
+      width: 100%;
+      max-height: 200px;
+      object-fit: contain;
+      margin-bottom: 15px;
+      border-radius: 10px;
+    }
+
+    .product h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .product p {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    .product a {
+      background-color: #25D366;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+
+    .product a:hover {
+      background-color: #128C7E;
+    }
+
+    /* Slick dots styling */
+    .slick-dots {
+      display: flex !important;
+      justify-content: center;
+      margin-top: 20px;
+      list-style: none;
+      padding: 0;
+    }
+
+    .slick-dots li {
+      margin: 0 5px;
+    }
+
+    .slick-dots button {
+      border: none;
+      background-color: #ccc;
+      border-radius: 50%;
+      width: 12px;
+      height: 12px;
+      text-indent: -9999px;
+      cursor: pointer;
+    }
+
+    .slick-dots .slick-active button {
+      background-color: #25D366;
+    }
+
+    .hero {
+     background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+      color: #fff;
+      padding: 60px 20px;
+      text-align: center;
+      height: 13rem;
+      margin-top: 2rem;
+    }
+  </style>
 </head>
 <body>
 
@@ -27,29 +111,52 @@
 </section>
 
 <!-- Products Grid -->
-<section class="products-grid">
+<section class="products-grid" style="display: flex;">
   <div class="product-card">
     <img src="https://images.unsplash.com/photo-1578898886412-8d8868967687?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Product 1">
     <h3>Modern Lounge Chair</h3>
     <p class="price">₦85,000</p>
-    <a href="https://wa.me/2348105279136?text=Hello%2C%20I'm%20interested%20in%20the%20Modern%20Lounge%20Chair." class="order-btn" target="_blank">Order Now</a>
+    <a href="https://wa.me/2348105279136?text=Hello%2C%20I'm%20interested%20in%20the%20Modern%20Lounge%20Chair." target="_blank">Order Now</a>
   </div>
 
   <div class="product-card">
     <img src="https://images.unsplash.com/photo-1616627986340-e0bb0c3ac3e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Product 2">
     <h3>Ergonomic Office Chair</h3>
     <p class="price">₦120,000</p>
-    <a href="https://wa.me/2348105279136?text=Hello%2C%20I'm%20interested%20in%20the%20Ergonomic%20Office%20Chair." class="order-btn" target="_blank">Order Now</a>
+    <a href="https://wa.me/2348105279136?text=Hello%2C%20I'm%20interested%20in%20the%20Ergonomic%20Office%20Chair." target="_blank">Order Now</a>
   </div>
 
   <div class="product-card">
     <img src="https://images.unsplash.com/photo-1601933470928-c6f338286d40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Product 3">
     <h3>Wooden Study Desk</h3>
     <p class="price">₦65,000</p>
-    <a href="https://wa.me/2348105279136?text=Hello%2C%20I'm%20interested%20in%20the%20Wooden%20Study%20Desk." class="order-btn" target="_blank">Order Now</a>
+    <a href="https://wa.me/2348105279136?text=Hello%2C%20I'm%20interested%20in%20the%20Wooden%20Study%20Desk." target="_blank">Order Now</a>
+  </div>
+</section>
+
+
+<!-- Product Carousel -->
+<section class="carousel">
+  <div class="product">
+    <img src="https://images.unsplash.com/photo-1578898886412-8d8868967687?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Modern Lounge Chair">
+    <h3>Modern Lounge Chair</h3>
+    <p>₦85,000</p>
+    <a href="https://wa.me/2348105279136?text=Hello,%20I'm%20interested%20in%20the%20Modern%20Lounge%20Chair." target="_blank">Order Now</a>
   </div>
 
-  <!-- Add more product cards here -->
+  <div class="product">
+    <img src="https://images.unsplash.com/photo-1616627986340-e0bb0c3ac3e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ergonomic Office Chair">
+    <h3>Ergonomic Office Chair</h3>
+    <p>₦120,000</p>
+    <a href="https://wa.me/2348105279136?text=Hello,%20I'm%20interested%20in%20the%20Ergonomic%20Office%20Chair." target="_blank">Order Now</a>
+  </div>
+
+  <div class="product">
+    <img src="https://images.unsplash.com/photo-1601933470928-c6f338286d40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Wooden Study Desk">
+    <h3>Wooden Study Desk</h3>
+    <p>₦65,000</p>
+    <a href="https://wa.me/2348105279136?text=Hello,%20I'm%20interested%20in%20the%20Wooden%20Study%20Desk." target="_blank">Order Now</a>
+  </div>
 </section>
 
 <!-- Footer -->
@@ -70,6 +177,23 @@
 <a href="https://wa.me/2348105279136" target="_blank" class="whatsapp-float">
   <i class="fab fa-whatsapp"></i>
 </a>
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $('.carousel').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 2500,
+      arrows: true,
+      dots: true,
+      infinite: true,
+    });
+  });
+</script>
 
 </body>
 </html>

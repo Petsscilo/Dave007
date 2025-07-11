@@ -1,4 +1,6 @@
-/* Basic Reset */
+/* ----------------------------------------
+  Global Reset and Base Styles
+---------------------------------------- */
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +14,9 @@ body {
   line-height: 1.6;
 }
 
-/* Header */
+/* ----------------------------------------
+  Header Section
+---------------------------------------- */
 header {
   background-color: #fff;
   padding: 1rem 2rem;
@@ -25,8 +29,17 @@ header {
   z-index: 1000;
 }
 
+.logo {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
 .nav-links a {
-  margin-left: 1.5rem;
   text-decoration: none;
   color: #333;
   font-weight: 500;
@@ -37,34 +50,26 @@ header {
   color: #00a000;
 }
 
-/* Hero Section */
+/* ----------------------------------------
+  Hero Section
+---------------------------------------- */
 .hero {
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80') no-repeat center/cover;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80') no-repeat center/cover;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #fff;
   text-align: center;
+  color: #fff;
   flex-direction: column;
   padding: 0 1rem;
-  position: relative;
-  overflow: hidden;
 }
 
 .hero h1 {
   font-size: 3.5rem;
   margin-bottom: 1rem;
-  font-weight: bold;
-  opacity: 0;
   animation: fadeCycle 6s infinite;
-}
-
-@keyframes fadeCycle {
-  0% { opacity: 0; transform: translateY(20px); }
-  20% { opacity: 1; transform: translateY(0); }
-  80% { opacity: 1; transform: translateY(0); }
-  100% { opacity: 0; transform: translateY(-20px); }
 }
 
 .hero p {
@@ -77,160 +82,26 @@ header {
   background-color: #00a000;
   color: #fff;
   padding: 0.75rem 1.5rem;
-  border: none;
   border-radius: 50px;
-  cursor: pointer;
   transition: background-color 0.3s;
+  border: none;
 }
 
 .hero .btn:hover {
   background-color: #008000;
 }
 
-/* Footer */
-footer {
-  background-color: #222;
-  color: #fff;
-  padding: 2rem;
-  text-align: center;
-  margin-top: 3rem;
-  position: relative;
+/* Fade animation for hero title */
+@keyframes fadeCycle {
+  0% { opacity: 0; transform: translateY(20px); }
+  20% { opacity: 1; transform: translateY(0); }
+  80% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-20px); }
 }
 
-.footer-contact p {
-  margin-bottom: 0.5rem;
-}
-
-.footer-socials a {
-  margin: 0 0.5rem;
-  text-decoration: none;
-  color: #fff;
-  font-size: 1.2rem;
-  transition: color 0.3s;
-}
-
-.footer-socials .facebook:hover {
-  color: #3b5998;
-}
-
-.footer-socials .instagram:hover {
-  color: #e4405f;
-}
-
-.footer-socials .tiktok:hover {
-  color: #000000;
-}
-
-.footer-credit {
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  animation: pulseText 3s infinite;
-}
-
-@keyframes pulseText {
-  0% { opacity: 0.5; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.05); }
-  100% { opacity: 0.5; transform: scale(1); }
-}
-
-.footer-credit p {
-  margin-top: 1rem;
-  font-size: 1rem;
-  color: #00ff99;
-  animation: fadePulse 3s ease-in-out infinite;
-}
-
-/* Animation */
-@keyframes fadePulse {
-  0% { opacity: 0.4; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.1); }
-  100% { opacity: 0.4; transform: scale(1); }
-}
-
-
-/* WhatsApp Floating Icon */
-.whatsapp-float {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #25D366;
-  color: white;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  z-index: 1000;
-  text-decoration: none;
-  transition: background-color 0.3s;
-}
-
-.whatsapp-float:hover {
-  background-color: #128C7E;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2.2rem;
-  }
-
-  .hero p {
-    font-size: 1rem;
-  }
-
-  .nav-links a {
-    margin-left: 1rem;
-  }
-}
-
-/* General Styles */
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  color: #333;
-  background-color: #ffffff;
-}
-
-/* Header Styles with Parallax and Cleaner Background */
-header {
-  background: linear-gradient(to right, #1c1c1c, #3a3a3a);
-  color: #fff;
-  padding: 20px 50px;
-  position: relative;
-  overflow: hidden;
-}
-
-.logo {
-  font-size: 2.5rem;
-  font-weight: 800;
-  position: relative;
-  z-index: 2;
-  animation: slideIn 1.2s ease forwards;
-}
-
-.nav-links {
-  display: flex;
-  gap: 25px;
-  position: relative;
-  z-index: 2;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: #fff;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-.nav-links a:hover {
-  color: #ff9800;
-}
-
-/* About Section */
+/* ----------------------------------------
+  About Section
+---------------------------------------- */
 .about {
   display: flex;
   flex-wrap: wrap;
@@ -242,7 +113,6 @@ header {
 .about-text {
   flex: 1;
   padding-right: 30px;
-  animation: fadeIn 1.5s ease forwards;
 }
 
 .about-text h1 {
@@ -258,7 +128,6 @@ header {
 
 .about-image {
   flex: 1;
-  animation: fadeIn 1.8s ease forwards;
 }
 
 .about-image img {
@@ -266,16 +135,13 @@ header {
   border-radius: 15px;
 }
 
-/* Social Media Section */
+/* ----------------------------------------
+  Social Media Section
+---------------------------------------- */
 .social-media {
   background-color: #eaeaea;
   text-align: center;
   padding: 60px 20px;
-}
-
-.social-media h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
 }
 
 .social-icons {
@@ -286,6 +152,7 @@ header {
 
 .social-icons a {
   font-size: 1.8rem;
+  color: #333;
   transition: transform 0.3s;
 }
 
@@ -293,34 +160,19 @@ header {
   transform: scale(1.2);
 }
 
-.facebook { color: #3b5998; }
-.instagram { color: #E1306C; }
-.tiktok { color: #000000; }
-.whatsapp { color: #25D366; }
-
-/* WhatsApp Channel */
+/* ----------------------------------------
+  WhatsApp Channel Section
+---------------------------------------- */
 .whatsapp-channel {
   background-color: #fff;
   text-align: center;
   padding: 50px 20px;
-  animation: fadeIn 2s ease forwards;
-}
-
-.whatsapp-channel h2 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-}
-
-.whatsapp-channel p {
-  color: #555;
-  margin-bottom: 20px;
 }
 
 .whatsapp-btn {
   background-color: #25D366;
   color: #fff;
   padding: 12px 25px;
-  border: none;
   border-radius: 30px;
   text-decoration: none;
   font-weight: bold;
@@ -331,13 +183,14 @@ header {
   background-color: #128C7E;
 }
 
-/* Footer */
+/* ----------------------------------------
+  Footer Section
+---------------------------------------- */
 footer {
   background-color: #222;
   color: #bbb;
   text-align: center;
   padding: 30px 20px;
-  position: relative;
 }
 
 .footer-contact {
@@ -355,7 +208,62 @@ footer {
   transform: scale(1.2);
 }
 
-/* Animations */
+/* ----------------------------------------
+  WhatsApp Floating Icon
+---------------------------------------- */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  color: white;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  text-decoration: none;
+}
+
+.whatsapp-float:hover {
+  background-color: #128C7E;
+}
+
+/* ----------------------------------------
+  Responsive Styles
+---------------------------------------- */
+
+/* Tablets and below */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2.2rem; }
+  .hero p { font-size: 1rem; }
+  .nav-links a { margin-left: 1rem; }
+  .about { flex-direction: column; padding: 40px 20px; }
+  .about-text, .about-image { padding: 0; }
+}
+
+/* Phones */
+@media (max-width: 600px) {
+  .contact-container {
+    margin: 20px 10px;
+    padding: 15px;
+  }
+
+  .contact-container h2 { font-size: 1.5rem; }
+  .contact-container input, .contact-container textarea { font-size: 0.95rem; }
+  .contact-details { font-size: 0.95rem; }
+  iframe { height: 250px; }
+
+  .footer-socials a { font-size: 1.2rem; }
+}
+
+/* ----------------------------------------
+  Additional Animations
+---------------------------------------- */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
@@ -364,14 +272,4 @@ footer {
 @keyframes slideIn {
   from { opacity: 0; transform: translateX(-100px); }
   to { opacity: 1; transform: translateX(0); }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .about {
-    flex-direction: column;
-  }
-  .about-text, .about-image {
-    padding: 0;
-  }
 }
