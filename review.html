@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DAVE007 Luxury Furniture</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* ==== GENERAL RESET ==== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #fdfdfd;
+  color: #333;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    z-index: 1000;
+  }
+  .logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffcc00;
+    letter-spacing: 2px;
+  }
+  nav {
+    display: flex;
+    gap: 20px;
+  }
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+  nav a:hover { color: #ffcc00; }
+/* ==== HEADER ==== */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(20, 20, 20, 0.85);
+    backdrop-filter: blur(12px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 50px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+  }
+  
+  header.scrolled {
+    padding: 12px 50px; /* shrink on scroll */
+    background: rgba(15, 15, 15, 0.95);
+  }
+  
+  /* Logo with a subtle luxury glow */
+  .logo {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #ffcc00;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(255, 204, 0, 0.4);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .logo:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Navigation */
+  nav {
+    display: flex;
+    gap: 30px;
+  }
+  
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+  }
+  
+  /* Fancy hover underline */
+  nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    height: 2px;
+    background: #ffcc00;
+    transition: width 0.3s ease;
+  }
+  
+  nav a:hover {
+    color: #ffcc00;
+  }
+  
+  nav a:hover::after {
+    width: 100%;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    header {
+      padding: 15px 25px;
+    }
+    .logo {
+      font-size: 1.6rem;
+    }
+    nav {
+      gap: 20px;
+    }
+  }
+  
+
+/* ==== HERO SECTION ==== */
+/* ==== HERO SECTION (UPDATED) ==== */
+.hero {
+    position: relative;
+    height: 100vh;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.6), 
+        rgba(0, 0, 0, 0.4)
+      ),
+      url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&auto=format&fit=crop&q=80') 
+      center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+  }
+  
+  /* Add a soft floating glow animation for classiness */
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at center,
+      rgba(255, 204, 0, 0.05),
+      transparent 70%
+    );
+    animation: subtleGlow 6s infinite alternate ease-in-out;
+  }
+  
+  @keyframes subtleGlow {
+    0% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 0.8;
+    }
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 750px;
+    padding: 0 20px;
+    animation: fadeInUp 1.5s ease-out;
+  }
+  
+  .hero h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+    color: #ffcc00;
+  }
+  
+  .hero p {
+    font-size: 1.3rem;
+    color: #eee;
+    line-height: 1.6;
+    margin-bottom: 30px;
+  }
+  
+  /* Premium CTA Button */
+  .cta-btn {
+    display: inline-block;
+    padding: 15px 35px;
+    background: linear-gradient(135deg, #ffcc00, #c19a6b);
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border-radius: 40px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+  }
+  
+  .cta-btn:hover {
+    background: linear-gradient(135deg, #ffd633, #d4a273);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  }
+  
+  /* Smooth fade-in animation */
+  @keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(40px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  
+
+/* Background slide animation */
+@keyframes heroSlide {
+  0% { background: url('hero1.jpg') center/cover no-repeat; }
+  50% { background: url('hero2.jpg') center/cover no-repeat; }
+  100% { background: url('hero3.jpg') center/cover no-repeat; }
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ==== PRODUCTS SECTION ==== */
+.products {
+  padding: 80px 10%;
+  text-align: center;
+}
+
+.products h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: #777;
+  margin-bottom: 40px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.product-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.product-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.product-card p {
+  color: #c19a6b;
+  font-weight: bold;
+}
+
+/* ==== ABOUT SECTION ==== */
+.about {
+  background: #faf7f4;
+  padding: 80px 15%;
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.about p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* ==== SOCIAL ICONS ==== */
+.social-icons {
+  text-align: center;
+  padding: 20px;
+}
+
+.social-icons a {
+  margin: 0 10px;
+  font-size: 1.4rem;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #c19a6b;
+}
+
+/* ==== WHATSAPP FLOAT ==== */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25d366;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.whatsapp-float a {
+  color: #fff;
+  font-size: 1.8rem;
+}
+
+/* ==== FOOTER ==== */
+footer {
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+}
+
+/* ==== MODAL ==== */
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: #fff;
+  width: 90%;
+  max-width: 600px;
+  padding: 30px;
+  border-radius: 15px;
+  position: relative;
+  animation: fadeInUp 0.5s ease;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px; right: 20px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.modal img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.modal h3 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+}
+
+.modal-price {
+  color: #c19a6b;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.reviews-list {
+  margin-bottom: 20px;
+  max-height: 150px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.review-item {
+  background: #f7f7f7;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.review-item .stars {
+  color: gold;
+  font-size: 1rem;
+}
+
+.review-form input,
+.review-form select,
+.review-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.review-form button {
+  background: #c19a6b;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.review-form button:hover {
+  background: #a87d56;
+}
+
+.order-btn {
+  margin-top: 15px;
+  background: #25d366;
+  color: #fff;
+  padding: 12px;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* ==== RESPONSIVE ==== */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.3rem;
+  }
+  .products {
+    padding: 60px 5%;
+  }
+  .about {
+    padding: 60px 10%;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">DAVE007</div>
+    <nav>
+      <a href="#hero">Home</a>
+      <a href="#products">Products</a>
+      <a href="#about">About Us</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+<!-- HERO SECTION -->
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <h1>Luxury Furniture For Elegant Homes,</h1>
+    <p>Premium designs crafted for comfort & class</p>
+    <a href="#products" class="cta-btn">Explore Collection</a>
+  </div>
+</section>
+
+<!-- PRODUCTS SECTION -->
+<section class="products" id="products">
+  <h2>Our Furniture Collection</h2>
+  <p class="section-subtitle">Handcrafted pieces designed for timeless beauty</p>
+  <div class="product-grid" id="productGrid">
+    <!-- Products will be injected dynamically via JavaScript -->
+  </div>
+</section>
+
+<!-- ABOUT US SECTION -->
+<section class="about" id="about">
+  <div class="about-content">
+    <h2>About Us</h2>
+    <p>
+      <strong>DAVE007 Luxury Furniture</strong> specializes in premium, handcrafted furniture designed to elevate your living space.  
+      Our mission is to blend timeless elegance with ultimate comfort, offering pieces that redefine luxury and durability.  
+      From living rooms to dining areas, we create masterpieces for your dream home.
+    </p>
+  </div>
+</section>
+
+<!-- SOCIAL MEDIA LINKS -->
+<div class="social-icons">
+  <a href="#"><i class="fab fa-facebook-f"></i></a>
+  <a href="#"><i class="fab fa-instagram"></i></a>
+  <a href="#"><i class="fab fa-tiktok"></i></a>
+  <a href="#"><i class="fab fa-threads"></i></a>
+</div>
+
+<!-- WHATSAPP FLOAT BUTTON -->
+<div class="whatsapp-float">
+  <a href="https://wa.me/1234567890" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>Built with ❤️ by <strong>PETSSCILO</strong> | &copy; 2025 DAVE007 Luxury Furniture</p>
+</footer>
+
+<!-- PRODUCT MODAL -->
+<div class="modal" id="productModal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    
+    <img id="modalImage" src="" alt="Product Image">
+    <h3 id="modalName"></h3>
+    <p class="modal-price" id="modalPrice"></p>
+
+    <!-- REVIEWS SECTION -->
+    <h4>Customer Reviews</h4>
+    <div class="reviews-list" id="reviewsList"></div>
+
+    <!-- ADD REVIEW FORM -->
+    <h4>Add Your Review</h4>
+    <form class="review-form" id="reviewForm">
+      <input type="text" id="reviewName" placeholder="Your Name" required>
+      <select id="reviewStars" required>
+        <option value="">Select Rating</option>
+        <option value="1">⭐</option>
+        <option value="2">⭐⭐</option>
+        <option value="3">⭐⭐⭐</option>
+        <option value="4">⭐⭐⭐⭐</option>
+        <option value="5">⭐⭐⭐⭐⭐</option>
+      </select>
+      <textarea id="reviewComment" placeholder="Write your review..." required></textarea>
+      <button type="submit">Submit Review</button>
+    </form>
+
+    <!-- ORDER NOW BUTTON -->
+    <a id="orderNowBtn" target="_blank">
+      <button class="order-btn">Order Now on WhatsApp</button>
+    </a>
+  </div>
+</div>
+
+  <script>
+    // Sample Furniture Products
+    const products = [
+      {id:1, name:"Luxury Sofa Set", price:"$2,500", image:""},
+      {id:2, name:"Modern Wooden Table", price:"$1,200", image:"https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8ZnVybml0dXJlfGVufDB8fDB8fHww"},
+      {id:3, name:"Elegant Armchair", price:"$750", image:"https://images.unsplash.com/photo-1582582428851-057bc151f051?auto=format&fit=crop&w=800&q=80"},
+      {id:4, name:"King Size Bed", price:"$3,400", image:"https://images.unsplash.com/photo-1550226891-ef816aed4a48?auto=format&fit=crop&w=800&q=80"}
+    ];
+
+    const productGrid = document.getElementById("productGrid");
+    const modal = document.getElementById("productModal");
+    const closeBtn = document.querySelector(".close-btn");
+    const modalImage = document.getElementById("modalImage");
+    const modalName = document.getElementById("modalName");
+    const modalPrice = document.getElementById("modalPrice");
+    const reviewsList = document.getElementById("reviewsList");
+    const reviewForm = document.getElementById("reviewForm");
+    const orderNowBtn = document.getElementById("orderNowBtn");
+
+    let currentProductId = null;
+
+    // Load products dynamically
+    products.forEach(prod => {
+      const div = document.createElement("div");
+      div.classList.add("product");
+      div.dataset.id = prod.id;
+      div.innerHTML = `
+        <img src="${prod.image}" alt="${prod.name}">
+        <div class="product-info">
+          <h3>${prod.name}</h3>
+          <p class="price">${prod.price}</p>
+        </div>
+      `;
+      div.addEventListener("click", ()=>openModal(prod));
+      productGrid.appendChild(div);
+    });
+
+    // Open Modal
+    function openModal(product) {
+      modalImage.src = product.image;
+      modalName.textContent = product.name;
+      modalPrice.textContent = product.price;
+      currentProductId = product.id;
+
+      orderNowBtn.href = `https://wa.me/1234567890?text=Hello! I'm interested in ${product.name} (${product.price})`;
+
+      loadReviews();
+      modal.style.display = "flex";
+    }
+
+    // Close Modal
+    closeBtn.addEventListener("click", ()=> modal.style.display = "none");
+    window.addEventListener("click", e => { if(e.target === modal) modal.style.display="none"; });
+
+    // Load reviews from localStorage
+    function loadReviews() {
+      reviewsList.innerHTML = "";
+      const savedReviews = JSON.parse(localStorage.getItem("reviews_"+currentProductId) || "[]");
+      if(savedReviews.length === 0) {
+        reviewsList.innerHTML = "<p>No reviews yet. Be the first!</p>";
+      } else {
+        savedReviews.forEach(r => {
+          const div = document.createElement("div");
+          div.classList.add("review");
+          div.innerHTML = `
+            <img src="https://i.pravatar.cc/40?u=${r.name}" alt="avatar">
+            <div>
+              <strong>${r.name}</strong>
+              <div class="stars">${"⭐".repeat(r.stars)}</div>
+              <p>${r.comment}</p>
+            </div>
+          `;
+          reviewsList.appendChild(div);
+        });
+      }
+    }
+
+    // Submit review
+    reviewForm.addEventListener("submit", e=>{
+      e.preventDefault();
+      const name = document.getElementById("reviewName").value;
+      const stars = parseInt(document.getElementById("reviewStars").value);
+      const comment = document.getElementById("reviewComment").value;
+
+      const newReview = {name, stars, comment};
+      const savedReviews = JSON.parse(localStorage.getItem("reviews_"+currentProductId) || "[]");
+      savedReviews.push(newReview);
+      localStorage.setItem("reviews_"+currentProductId, JSON.stringify(savedReviews));
+
+      reviewForm.reset();
+      loadReviews();
+    });
+  </script>
+  <script>
+    /* ---------- HERO ANIMATION ---------- */
+    const hero = document.getElementById('hero');
+    const heroTitle = document.getElementById('hero-title');
+    const heroSubtitle = document.getElementById('hero-subtitle');
+    
+    const heroSlides = [
+      {
+        title: "Luxury Sofa Collection",
+        subtitle: "Upgrade your living room",
+        image: "https://images.unsplash.com/photo-1680503397671-caa25818d36f?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGZ1cm5pdHVyZXN8ZW58MHx8MHx8fDA%3D"
+      },
+      {
+        title: "Modern Office Furniture",
+        subtitle: "Work in style & comfort",
+        image: "https://images.unsplash.com/photo-1600121848594-d8644e57abab?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGZ1cm5pdHVyZXN8ZW58MHx8MHx8fDA%3D"
+      },
+      {
+        title: "Elegant Dining Sets",
+        subtitle: "Perfect for family gatherings",
+        image: "https://images.unsplash.com/photo-1610366398516-46da9dec5931?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGhlcm8lMjBiYWNrZ3JvdW5kJTIwZnVybml0dXJlc3xlbnwwfHwwfHx8MA%3D%3D"
+      }
+    ];
+    
+    let heroIndex = 0;
+    function changeHeroSlide() {
+      heroIndex = (heroIndex + 1) % heroSlides.length;
+      const slide = heroSlides[heroIndex];
+    
+      hero.style.backgroundImage = `url(${slide.image})`;
+      heroTitle.textContent = slide.title;
+      heroSubtitle.textContent = slide.subtitle;
+    
+      hero.classList.remove("fadeSlide");
+      void hero.offsetWidth; // restart animation
+      hero.classList.add("fadeSlide");
+    }
+    setInterval(changeHeroSlide, 4000);
+    
+    
+    /* ---------- REVIEWS SYSTEM WITH localStorage ---------- */
+    const reviewKey = "pmart_reviews";
+    let reviews = JSON.parse(localStorage.getItem(reviewKey)) || [];
+    
+    const reviewsContainer = document.getElementById("reviews-container");
+    const submitBtn = document.getElementById("submit-review");
+    const avgRatingDisplay = document.getElementById("average-rating");
+    
+    function renderReviews() {
+      reviewsContainer.innerHTML = "";
+      let totalRating = 0;
+    
+      reviews.forEach((review, index) => {
+        totalRating += review.rating;
+    
+        const div = document.createElement("div");
+        div.classList.add("review");
+        div.innerHTML = `
+          <strong>${review.name}</strong> 
+          <span>(${review.rating}⭐)</span>
+          <p>${review.text}</p>
+          <span class="delete-review" onclick="deleteReview(${index})">Delete</span>
+        `;
+        reviewsContainer.appendChild(div);
+      });
+    
+      // Update average rating
+      const avg = reviews.length ? (totalRating / reviews.length).toFixed(1) : 0;
+      avgRatingDisplay.textContent = avg;
+    
+      localStorage.setItem(reviewKey, JSON.stringify(reviews));
+    }
+    
+    function deleteReview(index) {
+      reviews.splice(index, 1);
+      renderReviews();
+    }
+    
+    submitBtn.addEventListener("click", () => {
+      const name = document.getElementById("reviewer-name").value.trim();
+      const text = document.getElementById("review-text").value.trim();
+      const rating = parseInt(document.getElementById("review-rating").value);
+    
+      if (!name || !text) {
+        alert("Please enter name and review text!");
+        return;
+      }
+
+      window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+      
+    
+      reviews.push({ name, text, rating });
+      renderReviews();
+    
+      // Clear input fields
+      document.getElementById("reviewer-name").value = "";
+      document.getElementById("review-text").value = "";
+    });
+    
+    renderReviews(); // Load reviews on page load
+    </script>
+    
+
+</body>
+</html>

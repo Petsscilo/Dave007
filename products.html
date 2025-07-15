@@ -2,198 +2,510 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Shop - Dave007</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DAVE007 Luxury Furniture</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
   <style>
-    /* Carousel styles */
-    .carousel {
-      width: 90%;
-      margin: 40px auto;
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0d0d0d, #1a1a2e);
+      color: #fff;
+      scroll-behavior: smooth;
     }
 
-    .product {
-      padding: 20px;
-      background: #fff;
-      border-radius: 15px;
+    /* HERO SECTION */
+    /* HERO SECTION */
+.hero {
+  height: 80vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  animation: fadeSlide 1.2s ease-in-out;
+}
+
+.hero-content {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 20px;
+  border-radius: 12px;
+}
+
+@keyframes fadeSlide {
+  0% {opacity: 0; transform: translateY(50px);}
+  100% {opacity: 1; transform: translateY(0);}
+}
+
+.average-rating {
+  font-size: 18px;
+  margin: 10px 0;
+  color: #ff9800;
+}
+
+.review-form {
+  margin-top: 20px;
+}
+
+.review {
+  background: #f4f4f4;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+}
+
+.review span.delete-review {
+  color: red;
+  cursor: pointer;
+  float: right;
+}
+
+
+    /* PRODUCTS GRID */
+    .products {
+      padding: 100px 30px;
       text-align: center;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
-
+    .products h2 { font-size: 2rem; }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    .product {
+      background: #111;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .product:hover { transform: translateY(-5px); }
     .product img {
       width: 100%;
-      max-height: 200px;
-      object-fit: contain;
-      margin-bottom: 15px;
-      border-radius: 10px;
+      height: 200px;
+      object-fit: cover;
     }
+    .product-info { padding: 15px; }
+    .price { color: #ffcc00; font-weight: bold; }
 
-    .product h3 {
-      font-size: 1.2rem;
-      margin-bottom: 10px;
-    }
-
-    .product p {
-      font-size: 1rem;
-      color: #555;
-      margin-bottom: 15px;
-    }
-
-    .product a {
-      background-color: #25D366;
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 30px;
-      text-decoration: none;
-      transition: background-color 0.3s;
-    }
-
-    .product a:hover {
-      background-color: #128C7E;
-    }
-
-    /* Slick dots styling */
-    .slick-dots {
-      display: flex !important;
+    /* MODAL */
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      display: none;
       justify-content: center;
-      margin-top: 20px;
-      list-style: none;
-      padding: 0;
+      align-items: center;
+      z-index: 2000;
+    }
+    .modal-content {
+      background: #1a1a2e;
+      padding: 20px;
+      max-width: 500px;
+      width: 90%;
+      border-radius: 10px;
+      text-align: center;
+      position: relative;
+    }
+    .modal-content img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #fff;
     }
 
-    .slick-dots li {
-      margin: 0 5px;
+    /* REVIEWS */
+    .reviews-list {
+      max-height: 150px;
+      overflow-y: auto;
+      margin-bottom: 15px;
+      text-align: left;
     }
-
-    .slick-dots button {
-      border: none;
-      background-color: #ccc;
+    .review {
+      display: flex;
+      gap: 10px;
+      background: #111;
+      padding: 10px;
+      margin-bottom: 8px;
+      border-radius: 8px;
+    }
+    .review img {
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
-      width: 12px;
-      height: 12px;
-      text-indent: -9999px;
+    }
+    .review .stars { color: gold; font-size: 0.9rem; }
+
+    /* REVIEW FORM */
+    .review-form input, .review-form textarea, .review-form select {
+      width: 100%;
+      padding: 8px;
+      margin: 5px 0;
+      border: none;
+      border-radius: 5px;
+      background: #0d0d0d;
+      color: #fff;
+    }
+    .review-form button {
+      width: 100%;
+      padding: 10px;
+      background: #ffcc00;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
       cursor: pointer;
     }
 
-    .slick-dots .slick-active button {
-      background-color: #25D366;
+    /* ABOUT SECTION */
+    .about {
+      padding: 80px 30px;
+      background: #0d0d0d;
+      text-align: center;
+    }
+    .about h2 { font-size: 2rem; margin-bottom: 20px; }
+    .about p { max-width: 700px; margin: auto; line-height: 1.6; }
+
+    /* SOCIAL + WHATSAPP FLOAT */
+    .social-icons, .whatsapp-float {
+      position: fixed;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 3000;
+    }
+    .social-icons { bottom: 120px; }
+    .whatsapp-float { bottom: 40px; }
+    .social-icons a, .whatsapp-float a {
+      background: #ffcc00;
+      padding: 10px;
+      border-radius: 50%;
+      color: #000;
+      font-size: 1.3rem;
+      text-align: center;
+      transition: 0.3s;
+    }
+    .social-icons a:hover, .whatsapp-float a:hover {
+      transform: scale(1.1);
     }
 
-    .hero {
-     background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
-      color: #fff;
-      padding: 60px 20px;
+    footer {
+      padding: 20px;
       text-align: center;
-      height: 13rem;
-      margin-top: 2rem;
+      background: #000;
+      font-size: 0.9rem;
+      animation: fadeIn 2s infinite alternate;
+    }
+    @keyframes fadeIn {
+      from { color: #fff; }
+      to { color: #ffcc00; }
     }
   </style>
 </head>
 <body>
 
-<!-- Header -->
-<header>
-  <div class="logo">DAVE007</div>
-  <nav class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="products.html">Products</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-</header>
+  <!-- HEADER -->
+  <header>
+    <div class="logo">DAVE007</div>
+    <nav>
+      <a href="#hero">Home</a>
+      <a href="#products">Products</a>
+      <a href="#about">About Us</a>
+    </nav>
+  </header>
 
-<!-- Hero -->
-<section class="hero">
-  <h1>Explore Our Premium Products</h1>
-  <p>Shop top-quality furniture crafted for comfort and style. Designed to make your space feel like home.</p>
-</section>
-
-<!-- Products Grid -->
-<section class="products-grid" style="display: flex;">
-  <div class="product-card">
-    <img src="https://images.unsplash.com/photo-1578898886412-8d8868967687?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Product 1">
-    <h3>Modern Lounge Chair</h3>
-    <p class="price">₦85,000</p>
-    <a href="https://wa.me/2348105279136?text=Hello%2C%20I'm%20interested%20in%20the%20Modern%20Lounge%20Chair." target="_blank">Order Now</a>
-  </div>
-
-  <div class="product-card">
-    <img src="https://images.unsplash.com/photo-1616627986340-e0bb0c3ac3e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Product 2">
-    <h3>Ergonomic Office Chair</h3>
-    <p class="price">₦120,000</p>
-    <a href="https://wa.me/2348105279136?text=Hello%2C%20I'm%20interested%20in%20the%20Ergonomic%20Office%20Chair." target="_blank">Order Now</a>
-  </div>
-
-  <div class="product-card">
-    <img src="https://images.unsplash.com/photo-1601933470928-c6f338286d40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Product 3">
-    <h3>Wooden Study Desk</h3>
-    <p class="price">₦65,000</p>
-    <a href="https://wa.me/2348105279136?text=Hello%2C%20I'm%20interested%20in%20the%20Wooden%20Study%20Desk." target="_blank">Order Now</a>
+  <!-- HERO -->
+<!-- HERO SECTION -->
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <h1>Luxury Furniture For Elegant Homes</h1>
+    <p>Premium designs crafted for comfort & class</p>
+    <a href="#products" class="cta-btn">Explore Collection</a>
   </div>
 </section>
 
-
-<!-- Product Carousel -->
-<section class="carousel">
-  <div class="product">
-    <img src="https://images.unsplash.com/photo-1578898886412-8d8868967687?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Modern Lounge Chair">
-    <h3>Modern Lounge Chair</h3>
-    <p>₦85,000</p>
-    <a href="https://wa.me/2348105279136?text=Hello,%20I'm%20interested%20in%20the%20Modern%20Lounge%20Chair." target="_blank">Order Now</a>
-  </div>
-
-  <div class="product">
-    <img src="https://images.unsplash.com/photo-1616627986340-e0bb0c3ac3e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ergonomic Office Chair">
-    <h3>Ergonomic Office Chair</h3>
-    <p>₦120,000</p>
-    <a href="https://wa.me/2348105279136?text=Hello,%20I'm%20interested%20in%20the%20Ergonomic%20Office%20Chair." target="_blank">Order Now</a>
-  </div>
-
-  <div class="product">
-    <img src="https://images.unsplash.com/photo-1601933470928-c6f338286d40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Wooden Study Desk">
-    <h3>Wooden Study Desk</h3>
-    <p>₦65,000</p>
-    <a href="https://wa.me/2348105279136?text=Hello,%20I'm%20interested%20in%20the%20Wooden%20Study%20Desk." target="_blank">Order Now</a>
+<!-- PRODUCTS SECTION -->
+<section class="products" id="products">
+  <h2>Our Furniture Collection</h2>
+  <p class="section-subtitle">Handcrafted pieces designed for timeless beauty</p>
+  <div class="product-grid" id="productGrid">
+    <!-- Products will be injected dynamically via JavaScript -->
   </div>
 </section>
 
-<!-- Footer -->
+<!-- ABOUT US SECTION -->
+<section class="about" id="about">
+  <div class="about-content">
+    <h2>About Us</h2>
+    <p>
+      <strong>DAVE007 Luxury Furniture</strong> specializes in premium, handcrafted furniture designed to elevate your living space.  
+      Our mission is to blend timeless elegance with ultimate comfort, offering pieces that redefine luxury and durability.  
+      From living rooms to dining areas, we create masterpieces for your dream home.
+    </p>
+  </div>
+</section>
+
+<!-- SOCIAL MEDIA LINKS -->
+<div class="social-icons">
+  <a href="#"><i class="fab fa-facebook-f"></i></a>
+  <a href="#"><i class="fab fa-instagram"></i></a>
+  <a href="#"><i class="fab fa-tiktok"></i></a>
+  <a href="#"><i class="fab fa-threads"></i></a>
+</div>
+
+<!-- WHATSAPP FLOAT BUTTON -->
+<div class="whatsapp-float">
+  <a href="https://wa.me/1234567890" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+</div>
+
+<!-- FOOTER -->
 <footer>
-  <div class="footer-contact">
-    <p>📍 Plot 27, Obasanjo-Ijagba road, beside Banuso sawmill, off Idi-Iroko road, Ota, Ogun state, Nigeria.</p>
-    <p>📞 08105279136, 08174969150</p>
-  </div>
-  <div class="footer-socials">
-    <a href="https://www.facebook.com/share/16ki5bgvgQ/?mibextid=wwXIfr" target="_blank" class="social facebook"><i class="fab fa-facebook-f"></i></a>
-    <a href="#" target="_blank" class="social tiktok"><i class="fab fa-tiktok"></i></a>
-    <a href="#" target="_blank" class="social instagram"><i class="fab fa-instagram"></i></a>
-  </div>
-  <p class="built-by">Built by Ozoemelam Kingsley</p>
+  <p>Built with ❤️ by <strong>PETSSCILO</strong> | &copy; 2025 DAVE007 Luxury Furniture</p>
 </footer>
 
-<!-- WhatsApp Floating Icon -->
-<a href="https://wa.me/2348105279136" target="_blank" class="whatsapp-float">
-  <i class="fab fa-whatsapp"></i>
-</a>
+<!-- PRODUCT MODAL -->
+<div class="modal" id="productModal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    
+    <img id="modalImage" src="" alt="Product Image">
+    <h3 id="modalName"></h3>
+    <p class="modal-price" id="modalPrice"></p>
 
-<!-- Scripts -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-<script>
-  $(document).ready(function(){
-    $('.carousel').slick({
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      autoplay: true,
-      autoplaySpeed: 2500,
-      arrows: true,
-      dots: true,
-      infinite: true,
+    <!-- REVIEWS SECTION -->
+    <h4>Customer Reviews</h4>
+    <div class="reviews-list" id="reviewsList"></div>
+
+    <!-- ADD REVIEW FORM -->
+    <h4>Add Your Review</h4>
+    <form class="review-form" id="reviewForm">
+      <input type="text" id="reviewName" placeholder="Your Name" required>
+      <select id="reviewStars" required>
+        <option value="">Select Rating</option>
+        <option value="1">⭐</option>
+        <option value="2">⭐⭐</option>
+        <option value="3">⭐⭐⭐</option>
+        <option value="4">⭐⭐⭐⭐</option>
+        <option value="5">⭐⭐⭐⭐⭐</option>
+      </select>
+      <textarea id="reviewComment" placeholder="Write your review..." required></textarea>
+      <button type="submit">Submit Review</button>
+    </form>
+
+    <!-- ORDER NOW BUTTON -->
+    <a id="orderNowBtn" target="_blank">
+      <button class="order-btn">Order Now on WhatsApp</button>
+    </a>
+  </div>
+</div>
+
+  <script>
+    // Sample Furniture Products
+    const products = [
+      {id:1, name:"Luxury Sofa Set", price:"$2,500", image:"https://images.unsplash.com/photo-1616594039964-40c1681f3abf?auto=format&fit=crop&w=800&q=80"},
+      {id:2, name:"Modern Wooden Table", price:"$1,200", image:"https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"},
+      {id:3, name:"Elegant Armchair", price:"$750", image:"https://images.unsplash.com/photo-1582582428851-057bc151f051?auto=format&fit=crop&w=800&q=80"},
+      {id:4, name:"King Size Bed", price:"$3,400", image:"https://images.unsplash.com/photo-1550226891-ef816aed4a48?auto=format&fit=crop&w=800&q=80"}
+    ];
+
+    const productGrid = document.getElementById("productGrid");
+    const modal = document.getElementById("productModal");
+    const closeBtn = document.querySelector(".close-btn");
+    const modalImage = document.getElementById("modalImage");
+    const modalName = document.getElementById("modalName");
+    const modalPrice = document.getElementById("modalPrice");
+    const reviewsList = document.getElementById("reviewsList");
+    const reviewForm = document.getElementById("reviewForm");
+    const orderNowBtn = document.getElementById("orderNowBtn");
+
+    let currentProductId = null;
+
+    // Load products dynamically
+    products.forEach(prod => {
+      const div = document.createElement("div");
+      div.classList.add("product");
+      div.dataset.id = prod.id;
+      div.innerHTML = `
+        <img src="${prod.image}" alt="${prod.name}">
+        <div class="product-info">
+          <h3>${prod.name}</h3>
+          <p class="price">${prod.price}</p>
+        </div>
+      `;
+      div.addEventListener("click", ()=>openModal(prod));
+      productGrid.appendChild(div);
     });
-  });
-</script>
+
+    // Open Modal
+    function openModal(product) {
+      modalImage.src = product.image;
+      modalName.textContent = product.name;
+      modalPrice.textContent = product.price;
+      currentProductId = product.id;
+
+      orderNowBtn.href = `https://wa.me/1234567890?text=Hello! I'm interested in ${product.name} (${product.price})`;
+
+      loadReviews();
+      modal.style.display = "flex";
+    }
+
+    // Close Modal
+    closeBtn.addEventListener("click", ()=> modal.style.display = "none");
+    window.addEventListener("click", e => { if(e.target === modal) modal.style.display="none"; });
+
+    // Load reviews from localStorage
+    function loadReviews() {
+      reviewsList.innerHTML = "";
+      const savedReviews = JSON.parse(localStorage.getItem("reviews_"+currentProductId) || "[]");
+      if(savedReviews.length === 0) {
+        reviewsList.innerHTML = "<p>No reviews yet. Be the first!</p>";
+      } else {
+        savedReviews.forEach(r => {
+          const div = document.createElement("div");
+          div.classList.add("review");
+          div.innerHTML = `
+            <img src="https://i.pravatar.cc/40?u=${r.name}" alt="avatar">
+            <div>
+              <strong>${r.name}</strong>
+              <div class="stars">${"⭐".repeat(r.stars)}</div>
+              <p>${r.comment}</p>
+            </div>
+          `;
+          reviewsList.appendChild(div);
+        });
+      }
+    }
+
+    // Submit review
+    reviewForm.addEventListener("submit", e=>{
+      e.preventDefault();
+      const name = document.getElementById("reviewName").value;
+      const stars = parseInt(document.getElementById("reviewStars").value);
+      const comment = document.getElementById("reviewComment").value;
+
+      const newReview = {name, stars, comment};
+      const savedReviews = JSON.parse(localStorage.getItem("reviews_"+currentProductId) || "[]");
+      savedReviews.push(newReview);
+      localStorage.setItem("reviews_"+currentProductId, JSON.stringify(savedReviews));
+
+      reviewForm.reset();
+      loadReviews();
+    });
+  </script>
+  <script>
+    /* ---------- HERO ANIMATION ---------- */
+    const hero = document.getElementById('hero');
+    const heroTitle = document.getElementById('hero-title');
+    const heroSubtitle = document.getElementById('hero-subtitle');
+    
+    const heroSlides = [
+      {
+        title: "Luxury Sofa Collection",
+        subtitle: "Upgrade your living room",
+        image: "sofa-bg.jpg"
+      },
+      {
+        title: "Modern Office Furniture",
+        subtitle: "Work in style & comfort",
+        image: "office-bg.jpg"
+      },
+      {
+        title: "Elegant Dining Sets",
+        subtitle: "Perfect for family gatherings",
+        image: "dining-bg.jpg"
+      }
+    ];
+    
+    let heroIndex = 0;
+    function changeHeroSlide() {
+      heroIndex = (heroIndex + 1) % heroSlides.length;
+      const slide = heroSlides[heroIndex];
+    
+      hero.style.backgroundImage = `url(${slide.image})`;
+      heroTitle.textContent = slide.title;
+      heroSubtitle.textContent = slide.subtitle;
+    
+      hero.classList.remove("fadeSlide");
+      void hero.offsetWidth; // restart animation
+      hero.classList.add("fadeSlide");
+    }
+    setInterval(changeHeroSlide, 4000);
+    
+    
+    /* ---------- REVIEWS SYSTEM WITH localStorage ---------- */
+    const reviewKey = "pmart_reviews";
+    let reviews = JSON.parse(localStorage.getItem(reviewKey)) || [];
+    
+    const reviewsContainer = document.getElementById("reviews-container");
+    const submitBtn = document.getElementById("submit-review");
+    const avgRatingDisplay = document.getElementById("average-rating");
+    
+    function renderReviews() {
+      reviewsContainer.innerHTML = "";
+      let totalRating = 0;
+    
+      reviews.forEach((review, index) => {
+        totalRating += review.rating;
+    
+        const div = document.createElement("div");
+        div.classList.add("review");
+        div.innerHTML = `
+          <strong>${review.name}</strong> 
+          <span>(${review.rating}⭐)</span>
+          <p>${review.text}</p>
+          <span class="delete-review" onclick="deleteReview(${index})">Delete</span>
+        `;
+        reviewsContainer.appendChild(div);
+      });
+    
+      // Update average rating
+      const avg = reviews.length ? (totalRating / reviews.length).toFixed(1) : 0;
+      avgRatingDisplay.textContent = avg;
+    
+      localStorage.setItem(reviewKey, JSON.stringify(reviews));
+    }
+    
+    function deleteReview(index) {
+      reviews.splice(index, 1);
+      renderReviews();
+    }
+    
+    submitBtn.addEventListener("click", () => {
+      const name = document.getElementById("reviewer-name").value.trim();
+      const text = document.getElementById("review-text").value.trim();
+      const rating = parseInt(document.getElementById("review-rating").value);
+    
+      if (!name || !text) {
+        alert("Please enter name and review text!");
+        return;
+      }
+    
+      reviews.push({ name, text, rating });
+      renderReviews();
+    
+      // Clear input fields
+      document.getElementById("reviewer-name").value = "";
+      document.getElementById("review-text").value = "";
+    });
+    
+    renderReviews(); // Load reviews on page load
+    </script>
+    
+  
 
 </body>
 </html>
