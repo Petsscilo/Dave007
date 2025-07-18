@@ -2,220 +2,391 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Contact Us - Dave007 Furniture</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | DAVE007 Executive Furniture</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
+    /* ✅ Reset */
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+      font-family: "Arial", sans-serif;
     }
 
-    header {
-      padding: 20px;
-      background-color: #222;
-      color: #fff;
+    body {
+      background: #f8f8f8;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /* ✅ Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #000;
+      color: #fdd835; /* Yellow */
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 15px 20px;
+      z-index: 1000;
     }
 
-    .nav-links a {
+    .navbar .logo {
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: #fdd835; /* Yellow */
+      letter-spacing: 2px;
+    }
+
+    .navbar ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+      transition: max-height 0.4s ease-in-out;
+    }
+
+    .navbar ul li a {
       color: #fff;
-      margin-left: 15px;
-      text-decoration: none;
       font-weight: 500;
+      transition: 0.3s;
     }
 
-    .contact-container {
-      max-width: 1100px;
-      margin: 40px auto;
-      padding: 20px;
-      background: #fff;
-      border-radius: 15px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      animation: fadeIn 1.2s ease-in;
+    .navbar ul li a:hover,
+    .navbar ul li a.active {
+      color: #fdd835;
+      border-bottom: 2px solid #fdd835;
+      padding-bottom: 3px;
     }
 
-    .contact-container h2 {
+    /* ✅ Hamburger */
+    .hamburger {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #fff;
+    }
+
+    /* ✅ Mobile Menu */
+    @media (max-width: 768px) {
+      .navbar ul {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: #000;
+        flex-direction: column;
+        overflow: hidden;
+        max-height: 0;
+      }
+
+      .navbar ul.show {
+        max-height: 300px;
+      }
+
+      .navbar ul li {
+        text-align: center;
+        padding: 15px;
+        border-bottom: 1px solid #222;
+      }
+
+      .hamburger {
+        display: block;
+      }
+    }
+
+    /* ✅ Hero Section */
+    .hero.small-hero {
+      background: url("https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=1600") center/cover no-repeat;
+      height: 50vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      font-size: 2rem;
-      margin-bottom: 20px;
+      position: relative;
+      margin-bottom: 50px;
     }
 
-    form {
+    .hero-overlay {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-content {
+      position: relative;
+      color: #fdd835;
+      z-index: 1;
+      padding: 0 20px;
+    }
+
+    .hero-content h1 {
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+
+    /* ✅ Contact Section */
+    .contact-section {
+      padding: 80px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .contact-info {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .contact-info h2 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: #000;
+    }
+
+    .contact-info p {
+      margin-top: 10px;
+      font-size: 1rem;
+    }
+
+    .contact-info i {
+      color: #fdd835;
+      margin-right: 8px;
+    }
+
+    /* ✅ Contact Form */
+    .contact-form {
       display: flex;
       flex-direction: column;
-      gap: 15px;
+      align-items: center;
+      margin-bottom: 40px;
     }
 
-    input, textarea {
-      padding: 12px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      max-width: 500px;
+      padding: 12px 15px;
+      margin-bottom: 20px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
       font-size: 1rem;
+      transition: 0.3s;
     }
 
-    button {
-      padding: 12px;
-      background-color: #222;
-      color: #fff;
-      border: none;
-      border-radius: 8px;
+    .contact-form input:focus, 
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: #fdd835;
+      box-shadow: 0 0 6px rgba(253, 216, 53, 0.4);
+    }
+
+    .contact-form button {
+      padding: 12px 25px;
+      background: #000;
+      color: #fdd835;
       font-size: 1rem;
+      font-weight: bold;
+      border-radius: 6px;
+      border: 2px solid #fdd835;
       cursor: pointer;
       transition: 0.3s;
     }
 
-    button:hover {
-      background-color: #444;
+    .contact-form button:hover {
+      background: #fdd835;
+      color: #000;
     }
 
-    .contact-details {
-      margin-top: 40px;
-      color: #333;
-      font-size: 1rem;
-      line-height: 1.7;
-    }
-
-    .contact-details h3 {
-      margin-bottom: 10px;
-    }
-
-    .contact-details p {
-      margin: 5px 0;
-    }
-
-    iframe {
+    /* ✅ Map Section */
+    .map {
       width: 100%;
-      height: 350px;
-      margin-top: 30px;
-      border: 0;
-      border-radius: 12px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
 
-    footer {
+    /* ✅ Footer */
+    .footer {
+      background: #000;
+      color: #fdd835;
       text-align: center;
-      color: #333;
-      font-size: 0.9rem;
       padding: 20px;
-      margin-top: 40px;
-      background: #f9f9f9;
-      border-top: 1px solid #ddd;
-      animation: fadeIn 1.5s ease-in;
+      margin-top: 50px;
     }
 
-    #form-status {
-      margin-top: 10px;
+    .footer .social-icons a {
+      color: #fdd835;
+      margin: 0 8px;
+      font-size: 1.3rem;
+      transition: 0.3s;
+    }
+
+    .footer .social-icons a:hover {
+      color: #fff;
+    }
+
+    /* ✅ Popup Dialog */
+    .send-options {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      padding: 20px;
+      border: 2px solid #fdd835;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
       text-align: center;
+      z-index: 9999;
+      border-radius: 8px;
+    }
+    .send-options h3 {
+      margin-bottom: 15px;
+    }
+    .send-options button {
+      margin: 8px;
+      padding: 10px 20px;
+      background: #000;
+      color: #fdd835;
+      border: none;
+      cursor: pointer;
+      border-radius: 6px;
       font-weight: bold;
     }
-
-    /* Mobile Responsiveness */
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .nav-links {
-        margin-top: 10px;
-      }
-
-      .contact-container {
-        margin: 20px 10px;
-      }
-
-      iframe {
-        height: 250px;
-      }
-    }
-
-    /* Simple fade animation */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    .send-options button:hover {
+      background: #fdd835;
+      color: #000;
     }
   </style>
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
 
-<!-- Header -->
-<header>
-  <div class="logo">DAVE007</div>
-  <nav class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="products.html">Products</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
+  <!-- ✅ Navbar -->
+  <nav class="navbar">
+    <div class="logo">DAVE007</div>
+    <ul id="nav-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
+      <li><a class="active" href="contact.html">Contact</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger">☰</div>
   </nav>
-</header>
 
-<!-- Contact Form Section -->
-<section class="contact-container">
-  <h2>Contact Us</h2>
-  <form id="contact-form" action="https://formspree.io/f/mwkzljlz" method="POST">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="_replyto" placeholder="Your Email" required>
-    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+  <!-- ✅ Hero -->
+  <header class="hero small-hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Contact Us</h1>
+      <p>We’re here to help you design your dream space.</p>
+    </div>
+  </header>
 
-    <div class="g-recaptcha" data-sitekey="6LfycnkrAAAAAJ6AfuycT4VLhyZ8SL2m_KAkQ2H2"></div>
+  <!-- ✅ Contact Section -->
+  <section class="contact-section">
+    <div class="contact-info">
+      <h2>Get in Touch</h2>
+      <p><i class="fas fa-phone"></i> <a href="tel:+2348105279136">08105279136</a>, <a href="tel:+2348174969150">08174969150</a></p>
+      <p><i class="fas fa-map-marker-alt"></i> <a href="https://maps.google.com?q=Plot+27,+Obasanjo-Ijagba+Road,+Ota,+Ogun+State,+Nigeria" target="_blank">Plot 27, Obasanjo-Ijagba Road, Ota, Ogun State, Nigeria</a></p>
+      <p><i class="fas fa-envelope"></i> <a href="mailto:info@dave007furniture.com">info@dave007furniture.com</a></p>
+    </div>
 
-    <button type="submit">Send Message</button>
-  </form>
+    <!-- ✅ Contact Form -->
+    <form class="contact-form" id="contactForm">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit"><i class="fas fa-paper-plane"></i> Send Message</button>
+    </form>
 
-  <div id="form-status"></div>
+    <!-- ✅ Map -->
+    <div class="map">
+      <iframe 
+        src="https://maps.google.com/maps?q=Ogun%20State&t=&z=13&ie=UTF8&iwloc=&output=embed"
+        width="100%" height="300" frameborder="0" style="border:0;" allowfullscreen></iframe>
+    </div>
+  </section>
 
-  <!-- Contact Details -->
-  <div class="contact-details">
-    <h3>Our Showroom</h3>
-    <p><i class="fas fa-map-marker-alt"></i> Plot 27, Obasanjo-Ijagba Road, beside Banuso Sawmill, off Idi-Iroko Road, Ota, Ogun State, Nigeria</p>
-    <p><i class="fas fa-phone"></i> +234 806 123 4567</p>
-    <p><i class="fas fa-envelope"></i> <a href="mailto:info@dave007furniture.com">info@dave007furniture.com</a></p>
+  <!-- ✅ Send Options Popup -->
+  <div class="send-options" id="sendOptions">
+    <h3>Send your message via:</h3>
+    <button id="sendWhatsApp"><i class="fab fa-whatsapp"></i> WhatsApp</button>
+    <button id="sendEmail"><i class="fas fa-envelope"></i> Email</button>
+    <br><br>
+    <button onclick="document.getElementById('sendOptions').style.display='none'">Cancel</button>
   </div>
 
-  <!-- Google Map -->
-  <iframe
-    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d63336.123456789!2d3.23202!3d6.68867!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103baddac3e0f3f3%3A0x0000000000000000!2sPlot%2027%2C%20Obasanjo-Ijagba%20Road%2C%20Ota!5e0!3m2!1sen!2sng!4v1690000000000"
-    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-  </iframe>
-</section>
+  <!-- ✅ Footer -->
+  <footer class="footer">
+    <p>© 2025 DAVE007 Executive Furniture Design. All Rights Reserved.</p>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-whatsapp"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
+  </footer>
 
-<!-- Footer -->
-<footer>
-  Built by Petsscilo &copy; 2025
-</footer>
+  <!-- ✅ Script -->
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    hamburger.addEventListener('click', () => navMenu.classList.toggle('show'));
 
-<!-- Form Submission Script -->
-<script>
-  const form = document.getElementById('contact-form');
-  const status = document.getElementById('form-status');
+    // ✅ Contact Form Logic
+    const contactForm = document.getElementById('contactForm');
+    const sendOptions = document.getElementById('sendOptions');
+    const sendWhatsApp = document.getElementById('sendWhatsApp');
+    const sendEmail = document.getElementById('sendEmail');
 
-  form.addEventListener('submit', async function (e) {
-    e.preventDefault();
-    const data = new FormData(form);
-    try {
-      const response = await fetch(form.action, {
-        method: form.method,
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      });
+    let formData = {};
 
-      if (response.ok) {
-        status.innerText = "✅ Message sent successfully!";
-        form.reset();
-        grecaptcha.reset(); // Reset Google reCAPTCHA
-      } else {
-        status.innerText = "❌ Something went wrong. Please try again.";
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        message: document.getElementById('message').value
+      };
+      // Show send options popup
+      sendOptions.style.display = 'block';
+    });
+
+    sendWhatsApp.addEventListener('click', () => {
+      const whatsappNumber = "2348105279136"; // Admin WhatsApp
+      const text = `Hello, I am ${formData.name} (${formData.email}).\n\n${formData.message}`;
+      const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
+      window.open(whatsappURL, '_blank');
+    });
+
+    sendEmail.addEventListener('click', () => {
+      const adminEmail = "info@dave007furniture.com";
+      const subject = `New message from ${formData.name}`;
+      const body = `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`;
+      const mailtoURL = `mailto:${adminEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailtoURL;
+    });
+
+    // Close menu on outside click
+    document.addEventListener('click', (e) => {
+      if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+        navMenu.classList.remove('show');
       }
-    } catch {
-      status.innerText = "❌ Network error. Please try again.";
-    }
-  });
-</script>
+    });
+  </script>
 
 </body>
 </html>

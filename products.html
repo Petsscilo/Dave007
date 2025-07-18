@@ -3,509 +3,775 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DAVE007 Luxury Furniture</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Luxury Furniture Collection | DAVE007 Executive Furniture</title>
+  <meta name="description" content="Explore premium luxury furniture from DAVE007 Executive Furniture – designed for comfort, elegance, and sophistication.">
+  <meta name="keywords" content="luxury furniture, executive furniture, sofas, dining tables, office chairs, outdoor furniture">
+  <meta name="author" content="DAVE007 Executive Furniture">
+
+  <!-- ✅ FAVICON -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- ✅ FONT & ICONS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;900&display=swap" rel="stylesheet">
+
   <style>
-    body {
+    /* ✅ RESET */
+    * {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #0d0d0d, #1a1a2e);
-      color: #fff;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+    body {
+      background: #0d0d0d;
+      color: #f5f5f5;
+      line-height: 1.6;
       scroll-behavior: smooth;
     }
 
-    /* HERO SECTION */
-    /* HERO SECTION */
-.hero {
-  height: 80vh;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: white;
-  animation: fadeSlide 1.2s ease-in-out;
-}
-
-.hero-content {
-  background: rgba(0, 0, 0, 0.4);
-  padding: 20px;
-  border-radius: 12px;
-}
-
-@keyframes fadeSlide {
-  0% {opacity: 0; transform: translateY(50px);}
-  100% {opacity: 1; transform: translateY(0);}
-}
-
-.average-rating {
-  font-size: 18px;
-  margin: 10px 0;
-  color: #ff9800;
-}
-
-.review-form {
-  margin-top: 20px;
-}
-
-.review {
-  background: #f4f4f4;
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 8px;
-}
-
-.review span.delete-review {
-  color: red;
-  cursor: pointer;
-  float: right;
-}
-
-
-    /* PRODUCTS GRID */
-    .products {
-      padding: 100px 30px;
-      text-align: center;
-    }
-    .products h2 { font-size: 2rem; }
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
-    }
-    .product {
-      background: #111;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-      cursor: pointer;
-      transition: transform 0.3s;
-    }
-    .product:hover { transform: translateY(-5px); }
-    .product img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-    .product-info { padding: 15px; }
-    .price { color: #ffcc00; font-weight: bold; }
-
-    /* MODAL */
-    .modal {
+    /* ✅ NAVBAR */
+    .navbar {
       position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.8);
-      display: none;
-      justify-content: center;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
       align-items: center;
-      z-index: 2000;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
     }
-    .modal-content {
-      background: #1a1a2e;
-      padding: 20px;
-      max-width: 500px;
-      width: 90%;
-      border-radius: 10px;
-      text-align: center;
+    .navbar .logo {
+      font-size: 2rem;
+      font-weight: 900;
+      color: #FFD700;
+      letter-spacing: 2px;
+    }
+    .navbar ul {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+    .navbar ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      transition: 0.3s ease;
       position: relative;
     }
-    .modal-content img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 15px;
+    .navbar ul li a:hover {
+      color: #FFD700;
     }
-    .close-btn {
+    .navbar ul li a.active::after {
+      content: '';
       position: absolute;
-      top: 10px;
-      right: 15px;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: #fff;
+      width: 50%;
+      height: 2px;
+      background: #FFD700;
+      bottom: -5px;
+      left: 25%;
     }
-
-    /* REVIEWS */
-    .reviews-list {
-      max-height: 150px;
-      overflow-y: auto;
-      margin-bottom: 15px;
-      text-align: left;
-    }
-    .review {
-      display: flex;
-      gap: 10px;
-      background: #111;
-      padding: 10px;
-      margin-bottom: 8px;
-      border-radius: 8px;
-    }
-    .review img {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-    }
-    .review .stars { color: gold; font-size: 0.9rem; }
-
-    /* REVIEW FORM */
-    .review-form input, .review-form textarea, .review-form select {
-      width: 100%;
-      padding: 8px;
-      margin: 5px 0;
-      border: none;
-      border-radius: 5px;
-      background: #0d0d0d;
-      color: #fff;
-    }
-    .review-form button {
-      width: 100%;
-      padding: 10px;
-      background: #ffcc00;
-      border: none;
-      border-radius: 5px;
-      font-weight: bold;
+    .hamburger {
+      display: none;
+      font-size: 1.8rem;
       cursor: pointer;
     }
 
-    /* ABOUT SECTION */
-    .about {
-      padding: 80px 30px;
-      background: #0d0d0d;
-      text-align: center;
+    /* ✅ MOBILE MENU */
+    @media(max-width: 768px) {
+      .navbar ul {
+        position: fixed;
+        top: 60px;
+        left: -100%;
+        width: 100%;
+        background: rgba(0,0,0,0.95);
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+        transition: 0.4s ease;
+      }
+      .navbar ul.active {
+        left: 0;
+      }
+      .hamburger {
+        display: block;
+        color: #fff;
+      }
     }
-    .about h2 { font-size: 2rem; margin-bottom: 20px; }
-    .about p { max-width: 700px; margin: auto; line-height: 1.6; }
 
-    /* SOCIAL + WHATSAPP FLOAT */
-    .social-icons, .whatsapp-float {
-      position: fixed;
-      right: 20px;
+    /* ✅ HERO */
+    .hero {
+      height: 60vh;
+      background: url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600") center/cover no-repeat;
+      position: relative;
       display: flex;
-      flex-direction: column;
-      gap: 10px;
-      z-index: 3000;
+      justify-content: center;
+      align-items: center;
     }
-    .social-icons { bottom: 120px; }
-    .whatsapp-float { bottom: 40px; }
-    .social-icons a, .whatsapp-float a {
-      background: #ffcc00;
-      padding: 10px;
-      border-radius: 50%;
-      color: #000;
-      font-size: 1.3rem;
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+    }
+    .hero-content {
+      position: relative;
       text-align: center;
-      transition: 0.3s;
+      color: #fff;
+      animation: fadeUp 1.2s ease;
+      max-width: 700px;
+      padding: 0 20px;
     }
-    .social-icons a:hover, .whatsapp-float a:hover {
-      transform: scale(1.1);
+    .hero-content h1 {
+      font-size: 2.8rem;
+      color: #FFD700;
+    }
+    .hero-content p {
+      margin-top: 8px;
+      font-size: 1.2rem;
+      opacity: 0.85;
     }
 
-    footer {
+    /* ✅ SECTION */
+    .section {
+      max-width: 1200px;
+      margin: 100px auto;
       padding: 20px;
       text-align: center;
+    }
+    .section-title {
+      font-size: 2rem;
+      color: #FFD700;
+      margin-bottom: 30px;
+    }
+
+    /* ✅ PRODUCT GRID */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+    .product-card {
+      background: #1a1a1a;
+      padding: 15px;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s forwards;
+    }
+    .product-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 10px;
+      transition: transform 0.4s ease;
+    }
+    .product-card h3 {
+      margin: 12px 0 8px;
+      font-size: 1.3rem;
+      color: #FFD700;
+    }
+    .product-card p {
+      font-size: 0.95rem;
+      opacity: 0.85;
+      margin-bottom: 12px;
+    }
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(255,215,0,0.15);
+    }
+    .product-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .btn {
+      display: inline-block;
+      background: #FFD700;
+      color: #000;
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s ease;
+    }
+    .btn:hover {
+      background: #e6c200;
+    }
+
+    /* ✅ CTA BANNER */
+    .cta {
+      background: linear-gradient(135deg, #FFD700, #ffbb00);
+      color: #000;
+      text-align: center;
+      padding: 50px 20px;
+      border-radius: 12px;
+      margin: 80px auto;
+      max-width: 900px;
+    }
+    .cta h2 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+    .cta p {
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+
+    /* ✅ FOOTER */
+    .footer {
+      text-align: center;
+      padding: 40px 20px;
       background: #000;
-      font-size: 0.9rem;
-      animation: fadeIn 2s infinite alternate;
+      color: #aaa;
+      margin-top: 50px;
     }
-    @keyframes fadeIn {
-      from { color: #fff; }
-      to { color: #ffcc00; }
+    .social-icons {
+      margin-top: 15px;
     }
+    .social-icons a {
+      color: #fff;
+      margin: 0 10px;
+      font-size: 1.3rem;
+      transition: color 0.3s ease;
+    }
+    .social-icons a:hover {
+      color: #FFD700;
+    }
+
+    /* ✅ SCROLL TO TOP */
+    .scroll-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #FFD700;
+      color: #000;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 50%;
+      font-size: 1.3rem;
+      cursor: pointer;
+      display: none;
+      transition: 0.3s ease;
+    }
+    .scroll-top:hover {
+      background: #e6c200;
+    }
+
+    /* ✅ ANIMATIONS */
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(50px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ✅ MODAL POPUP */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(5px);
+}
+.modal-content {
+  background: #1a1a1a;
+  padding: 20px;
+  max-width: 600px;
+  width: 90%;
+  border-radius: 12px;
+  position: relative;
+  text-align: center;
+  color: #fff;
+  animation: fadeUp 0.4s ease;
+}
+.modal-content img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+.close-btn {
+  position: absolute;
+  top: 10px; right: 15px;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #FFD700;
+}
+
+/* ✅ Reviews */
+#reviewSection {
+  text-align: left;
+  margin-top: 20px;
+}
+#reviewList {
+  margin-bottom: 15px;
+}
+.review-item {
+  display: flex;
+  align-items: flex-start;
+  border-bottom: 1px solid #444;
+  padding: 10px 0;
+  gap: 10px;
+}
+.review-item img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.review-content {
+  flex: 1;
+}
+.review-content strong {
+  color: #FFD700;
+}
+.review-content .stars {
+  color: #FFD700;
+  font-size: 0.9rem;
+}
+
+.add-review input,
+.add-review textarea,
+.add-review select {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+  background: #222;
+  border: 1px solid #444;
+  color: #fff;
+  border-radius: 6px;
+}
+.add-review button {
+  background: #FFD700;
+  color: #000;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+}
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header>
+  <!-- ✅ NAVBAR -->
+  <nav class="navbar">
     <div class="logo">DAVE007</div>
-    <nav>
-      <a href="#hero">Home</a>
-      <a href="#products">Products</a>
-      <a href="#about">About Us</a>
-    </nav>
+    <ul id="navMenu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html" class="active">Products</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
+  </nav>
+
+  <!-- ✅ HERO -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Our Furniture Collection</h1>
+      <p>Luxury • Comfort • Elegance for Your Home & Office</p>
+    </div>
   </header>
 
-  <!-- HERO -->
-<!-- HERO SECTION -->
-<section class="hero" id="hero">
-  <div class="hero-content">
-    <h1>Luxury Furniture For Elegant Homes</h1>
-    <p>Premium designs crafted for comfort & class</p>
-    <a href="#products" class="cta-btn">Explore Collection</a>
-  </div>
-</section>
+  <!-- ✅ PRODUCTS -->
+  <section class="section">
+    <h2 class="section-title">Explore Our Designs</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="/Dave007/image copy 30.png" alt="Luxury Sofa" loading="lazy">
+        <h3>6by6 bed with one mirror 400k </h3>
+        <p>Comfortable and stylish for your living room.</p>
+        <a href="#" class="btn">View Details</a>
+      </div>
+      <div class="product-card">
+        <img src="/Dave007/image copy 19.png" alt="Luxury Sofa" loading="lazy">
+        <h3>6by6 bed with one mirror 400k </h3>
+        <p>Comfortable and stylish for your living room.</p>
+        <a href="#" class="btn">View Details</a>
+      </div>
+      <div class="product-card">
+        <img src="/Dave007/image copy 29.png" alt="Office Chair" loading="lazy">
+        <h3>Executive Office Chair</h3>
+        <p>Ergonomic design for long hours of work.</p>
+        <a href="#" class="btn">View Details</a>
+      </div>
+      <div class="product-card">
+        <img src="/Dave007/image copy 28.png" alt="Dining Table" loading="lazy">
+        <h3>Boutique Shelf depends of the measurement</h3>
+        <p>Perfect for family dining & hotel use.</p>
+        <a href="#" class="btn">View Details</a>
+      </div>
+      <div class="product-card">
+        <img src="/Dave007/image copy 27.png" alt="Outdoor Furniture" loading="lazy">
+        <h3>Complete 600k</h3>
+        <p>Stylish exterior furniture for gardens & patios.</p>
+        <a href="#" class="btn">View Details</a>
+      </div>
+      <div class="product-card">
+        <img src="/Dave007/image copy 26.png" alt="Luxury Sofa" loading="lazy">
+        <h3>6by6 bed with one mirror 400k </h3>
+        <p>Comfortable and stylish for your living room.</p>
+        <a href="#" class="btn">View Details</a>
+      </div>
+      <div class="product-card">
+        <img src="/Dave007/image copy 25.png" alt="Office Chair" loading="lazy">
+        <h3>Executive Office Chair</h3>
+        <p>Ergonomic design for long hours of work.</p>
+        <a href="#" class="btn">View Details</a>
+      </div>
+      <div class="product-card">
+        <img src="/Dave007/image copy 23.png" alt="Dining Table" loading="lazy">
+        <h3>Modern Dining Table</h3>
+        <p>Perfect for family dining & hotel use.</p>
+        <a href="#" class="btn">View Details</a>
+      </div>
+      <div class="product-card">
+        <img src="/Dave007/image copy 24.png" alt="Outdoor Furniture" loading="lazy">
+        <h3>Outdoor Furniture</h3>
+        <p>Stylish exterior furniture for gardens & patios.</p>
+        <a href="#" class="btn">View Details</a>
+      </div>
+      <div class="product-card">
+        <img src="/Dave007/image copy 22.png" alt="Luxury Sofa" loading="lazy">
+        <h3>6by6 bed with one mirror 400k </h3>
+        <p>Comfortable and stylish for your living room.</p>
+        <a href="#" class="btn">View Details</a>
+      </div>
+      <div class="product-card">
+        <img src="/Dave007/image copy 21.png" alt="Office Chair" loading="lazy">
+        <h3>Executive Office Chair</h3>
+        <p>Ergonomic design for long hours of work.</p>
+        <a href="#" class="btn">View Details</a>
+      </div>
+      <div class="product-card">
+        <img src="/Dave007/image copy 20.png" alt="Dining Table" loading="lazy">
+        <h3>Modern Dining Table</h3>
+        <p>Perfect for family dining & hotel use.</p>
+        <a href="#" class="btn">View Details</a>
+      </div>
+      <div class="product-card">
+        <img src="/Dave007/image.png" alt="Outdoor Furniture" loading="lazy">
+        <h3>Outdoor Furniture</h3>
+        <p>Stylish exterior furniture for gardens & patios.</p>
+        <a href="#" class="btn">View Details</a>
+      </div>
+      <div class="product-card">
+        <img src="/Dave007/image copy.png" alt="Luxury Sofa" loading="lazy">
+        <h3>6by6 bed with one mirror 400k </h3>
+        <p>Comfortable and stylish for your living room.</p>
+        <a href="#" class="btn">View Details</a>
+      </div>
+      <div class="product-card">
+        <img src="/Dave007/image copy 9.png" alt="Office Chair" loading="lazy">
+        <h3>Executive Office Chair</h3>
+        <p>Ergonomic design for long hours of work.</p>
+        <a href="#" class="btn">View Details</a>
+      </div>
+      <div class="product-card">
+        <img src="/Dave007/image copy 8.png" alt="Dining Table" loading="lazy">
+        <h3>Modern Dining Table</h3>
+        <p>Perfect for family dining & hotel use.</p>
+        <a href="#" class="btn">View Details</a>
+      </div>
+      <div class="product-card">
+        <img src="/Dave007/image copy 7.png" alt="Outdoor Furniture" loading="lazy">
+        <h3>Outdoor Furniture</h3>
+        <p>Stylish exterior furniture for gardens & patios.</p>
+        <a href="#" class="btn">View Details</a>
+      </div>
+      <div class="product-card">
+        <img src="/Dave007/image copy 6.png" alt="Luxury Sofa" loading="lazy">
+        <h3>6by6 bed with one mirror 400k </h3>
+        <p>Comfortable and stylish for your living room.</p>
+        <a href="#" class="btn">View Details</a>
+      </div>
+      <div class="product-card">
+        <img src="/Dave007/image copy 5.png" alt="Office Chair" loading="lazy">
+        <h3>Executive Office Chair</h3>
+        <p>Ergonomic design for long hours of work.</p>
+        <a href="#" class="btn">View Details</a>
+      </div>
+      <div class="product-card">
+        <img src="/Dave007/image copy 4.png" alt="Dining Table" loading="lazy">
+        <h3>Modern Dining Table</h3>
+        <p>Perfect for family dining & hotel use.</p>
+        <a href="#" class="btn">View Details</a>
+      </div>
+      <div class="product-card">
+        <img src="/Dave007/image copy 3.png" alt="Outdoor Furniture" loading="lazy">
+        <h3>Outdoor Furniture</h3>
+        <p>Stylish exterior furniture for gardens & patios.</p>
+        <a href="#" class="btn">View Details</a>
+      </div>
+      <div class="product-card">
+        <img src="/Dave007/image copy 10.png" alt="Luxury Sofa" loading="lazy">
+        <h3>6by6 bed with one mirror 400k </h3>
+        <p>Comfortable and stylish for your living room.</p>
+        <a href="#" class="btn">View Details</a>
+      </div>
+      <div class="product-card">
+        <img src="/Dave007/image copy 2.png" alt="Office Chair" loading="lazy">
+        <h3>Executive Office Chair</h3>
+        <p>Ergonomic design for long hours of work.</p>
+        <a href="#" class="btn">View Details</a>
+      </div>
+      <div class="product-card">
+        <img src="/Dave007/image copy 11.png" alt="Dining Table" loading="lazy">
+        <h3>Modern Dining Table</h3>
+        <p>Perfect for family dining & hotel use.</p>
+        <a href="#" class="btn">View Details</a>
+      </div>
+      <div class="product-card">
+        <img src="/Dave007/image copy 12.png" alt="Outdoor Furniture" loading="lazy">
+        <h3>Outdoor Furniture</h3>
+        <p>Stylish exterior furniture for gardens & patios.</p>
+        <a href="#" class="btn">View Details</a>
+      </div>
 
-<!-- PRODUCTS SECTION -->
-<section class="products" id="products">
-  <h2>Our Furniture Collection</h2>
-  <p class="section-subtitle">Handcrafted pieces designed for timeless beauty</p>
-  <div class="product-grid" id="productGrid">
-    <!-- Products will be injected dynamically via JavaScript -->
-  </div>
-</section>
+    </div>
+  </section>
 
-<!-- ABOUT US SECTION -->
-<section class="about" id="about">
-  <div class="about-content">
-    <h2>About Us</h2>
-    <p>
-      <strong>DAVE007 Luxury Furniture</strong> specializes in premium, handcrafted furniture designed to elevate your living space.  
-      Our mission is to blend timeless elegance with ultimate comfort, offering pieces that redefine luxury and durability.  
-      From living rooms to dining areas, we create masterpieces for your dream home.
-    </p>
-  </div>
-</section>
-
-<!-- SOCIAL MEDIA LINKS -->
-<div class="social-icons">
-  <a href="#"><i class="fab fa-facebook-f"></i></a>
-  <a href="#"><i class="fab fa-instagram"></i></a>
-  <a href="#"><i class="fab fa-tiktok"></i></a>
-  <a href="#"><i class="fab fa-threads"></i></a>
-</div>
-
-<!-- WHATSAPP FLOAT BUTTON -->
-<div class="whatsapp-float">
-  <a href="https://wa.me/1234567890" target="_blank">
-    <i class="fab fa-whatsapp"></i>
-  </a>
-</div>
-
-<!-- FOOTER -->
-<footer>
-  <p>Built with ❤️ by <strong>PETSSCILO</strong> | &copy; 2025 DAVE007 Luxury Furniture</p>
-</footer>
-
-<!-- PRODUCT MODAL -->
-<div class="modal" id="productModal">
+  <!-- ✅ PRODUCT MODAL (hidden by default) -->
+<div id="productModal" class="modal">
   <div class="modal-content">
     <span class="close-btn">&times;</span>
-    
     <img id="modalImage" src="" alt="Product Image">
     <h3 id="modalName"></h3>
-    <p class="modal-price" id="modalPrice"></p>
+    <p id="modalPrice"></p>
 
-    <!-- REVIEWS SECTION -->
-    <h4>Customer Reviews</h4>
-    <div class="reviews-list" id="reviewsList"></div>
+    <!-- ✅ Reviews Section -->
+    <div id="reviewSection">
+      <h4>Customer Reviews</h4>
+      <div id="reviewList"></div>
 
-    <!-- ADD REVIEW FORM -->
-    <h4>Add Your Review</h4>
-    <form class="review-form" id="reviewForm">
-      <input type="text" id="reviewName" placeholder="Your Name" required>
-      <select id="reviewStars" required>
-        <option value="">Select Rating</option>
-        <option value="1">⭐</option>
-        <option value="2">⭐⭐</option>
-        <option value="3">⭐⭐⭐</option>
-        <option value="4">⭐⭐⭐⭐</option>
-        <option value="5">⭐⭐⭐⭐⭐</option>
-      </select>
-      <textarea id="reviewComment" placeholder="Write your review..." required></textarea>
-      <button type="submit">Submit Review</button>
-    </form>
+      <!-- ✅ Add Review -->
+      <div class="add-review">
+        <input type="text" id="reviewerName" placeholder="Your Name">
+        <input type="text" id="reviewerAvatar" placeholder="Profile Image URL (optional)">
+        <textarea id="reviewText" placeholder="Write your review..."></textarea>
+        <select id="reviewRating">
+          <option value="5">⭐️⭐️⭐️⭐️⭐️</option>
+          <option value="4">⭐️⭐️⭐️⭐️</option>
+          <option value="3">⭐️⭐️⭐️</option>
+          <option value="2">⭐️⭐️</option>
+          <option value="1">⭐️</option>
+        </select>
+        <button id="submitReview">Submit Review</button>
+      </div>
+    </div>
 
-    <!-- ORDER NOW BUTTON -->
-    <a id="orderNowBtn" target="_blank">
-      <button class="order-btn">Order Now on WhatsApp</button>
-    </a>
+    <!-- ✅ Buy Now Button -->
+    <a id="buyNowBtn" class="btn" target="_blank">Buy Now on WhatsApp</a>
   </div>
 </div>
 
+
+  <!-- ✅ CTA BANNER -->
+  <section class="cta">
+    <h2>Need Custom Furniture?</h2>
+    <p>We design and deliver personalized executive furniture to match your style.</p>
+    <a href="contact.html" class="btn">Get a Free Quote</a>
+  </section>
+
+  <!-- ✅ FOOTER -->
+  <footer class="footer">
+    <p>© 2025 DAVE007 Executive Furniture Design. All Rights Reserved.</p>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-whatsapp"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
+  </footer>
+
+  <!-- ✅ SCROLL TO TOP BUTTON -->
+  <button class="scroll-top" id="scrollTop"><i class="fas fa-arrow-up"></i></button>
+
+  <!-- ✅ INLINE JS -->
   <script>
-    // Sample Furniture Products
-    const products = [
-      {id:1, name:"Luxury Sofa Set", price:"$2,500", image:"https://images.unsplash.com/photo-1616594039964-40c1681f3abf?auto=format&fit=crop&w=800&q=80"},
-      {id:2, name:"Modern Wooden Table", price:"$1,200", image:"https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"},
-      {id:3, name:"Elegant Armchair", price:"$750", image:"https://images.unsplash.com/photo-1582582428851-057bc151f051?auto=format&fit=crop&w=800&q=80"},
-      {id:4, name:"King Size Bed", price:"$3,400", image:"https://images.unsplash.com/photo-1550226891-ef816aed4a48?auto=format&fit=crop&w=800&q=80"}
-    ];
+    document.addEventListener("DOMContentLoaded", () => {
+      // ✅ Hamburger Toggle
+      const hamburger = document.getElementById("hamburger");
+      const navMenu = document.getElementById("navMenu");
+      hamburger.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+      });
 
-    const productGrid = document.getElementById("productGrid");
-    const modal = document.getElementById("productModal");
-    const closeBtn = document.querySelector(".close-btn");
-    const modalImage = document.getElementById("modalImage");
-    const modalName = document.getElementById("modalName");
-    const modalPrice = document.getElementById("modalPrice");
-    const reviewsList = document.getElementById("reviewsList");
-    const reviewForm = document.getElementById("reviewForm");
-    const orderNowBtn = document.getElementById("orderNowBtn");
+      // ✅ Animate product cards delay
+      const cards = document.querySelectorAll(".product-card");
+      cards.forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.2}s`;
+      });
 
-    let currentProductId = null;
-
-    // Load products dynamically
-    products.forEach(prod => {
-      const div = document.createElement("div");
-      div.classList.add("product");
-      div.dataset.id = prod.id;
-      div.innerHTML = `
-        <img src="${prod.image}" alt="${prod.name}">
-        <div class="product-info">
-          <h3>${prod.name}</h3>
-          <p class="price">${prod.price}</p>
-        </div>
-      `;
-      div.addEventListener("click", ()=>openModal(prod));
-      productGrid.appendChild(div);
-    });
-
-    // Open Modal
-    function openModal(product) {
-      modalImage.src = product.image;
-      modalName.textContent = product.name;
-      modalPrice.textContent = product.price;
-      currentProductId = product.id;
-
-      orderNowBtn.href = `https://wa.me/1234567890?text=Hello! I'm interested in ${product.name} (${product.price})`;
-
-      loadReviews();
-      modal.style.display = "flex";
-    }
-
-    // Close Modal
-    closeBtn.addEventListener("click", ()=> modal.style.display = "none");
-    window.addEventListener("click", e => { if(e.target === modal) modal.style.display="none"; });
-
-    // Load reviews from localStorage
-    function loadReviews() {
-      reviewsList.innerHTML = "";
-      const savedReviews = JSON.parse(localStorage.getItem("reviews_"+currentProductId) || "[]");
-      if(savedReviews.length === 0) {
-        reviewsList.innerHTML = "<p>No reviews yet. Be the first!</p>";
-      } else {
-        savedReviews.forEach(r => {
-          const div = document.createElement("div");
-          div.classList.add("review");
-          div.innerHTML = `
-            <img src="https://i.pravatar.cc/40?u=${r.name}" alt="avatar">
-            <div>
-              <strong>${r.name}</strong>
-              <div class="stars">${"⭐".repeat(r.stars)}</div>
-              <p>${r.comment}</p>
-            </div>
-          `;
-          reviewsList.appendChild(div);
-        });
-      }
-    }
-
-    // Submit review
-    reviewForm.addEventListener("submit", e=>{
-      e.preventDefault();
-      const name = document.getElementById("reviewName").value;
-      const stars = parseInt(document.getElementById("reviewStars").value);
-      const comment = document.getElementById("reviewComment").value;
-
-      const newReview = {name, stars, comment};
-      const savedReviews = JSON.parse(localStorage.getItem("reviews_"+currentProductId) || "[]");
-      savedReviews.push(newReview);
-      localStorage.setItem("reviews_"+currentProductId, JSON.stringify(savedReviews));
-
-      reviewForm.reset();
-      loadReviews();
+      // ✅ Scroll to top
+      const scrollTop = document.getElementById("scrollTop");
+      window.addEventListener("scroll", () => {
+        scrollTop.style.display = window.scrollY > 200 ? "block" : "none";
+      });
+      scrollTop.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
     });
   </script>
   <script>
-    /* ---------- HERO ANIMATION ---------- */
-    const hero = document.getElementById('hero');
-    const heroTitle = document.getElementById('hero-title');
-    const heroSubtitle = document.getElementById('hero-subtitle');
+    document.addEventListener("DOMContentLoaded", () => {
+      const modal = document.getElementById("productModal");
+      const closeBtn = document.querySelector(".close-btn");
+      const modalImage = document.getElementById("modalImage");
+      const modalName = document.getElementById("modalName");
+      const modalPrice = document.getElementById("modalPrice");
+      const reviewList = document.getElementById("reviewList");
+      const buyNowBtn = document.getElementById("buyNowBtn");
     
-    const heroSlides = [
-      {
-        title: "Luxury Sofa Collection",
-        subtitle: "Upgrade your living room",
-        image: "sofa-bg.jpg"
-      },
-      {
-        title: "Modern Office Furniture",
-        subtitle: "Work in style & comfort",
-        image: "office-bg.jpg"
-      },
-      {
-        title: "Elegant Dining Sets",
-        subtitle: "Perfect for family gatherings",
-        image: "dining-bg.jpg"
-      }
-    ];
+      let currentProduct = null;
     
-    let heroIndex = 0;
-    function changeHeroSlide() {
-      heroIndex = (heroIndex + 1) % heroSlides.length;
-      const slide = heroSlides[heroIndex];
+      // ✅ Product Data
+      const products = [
+        {
+          name: "Luxury Sofa Set",
+          price: "₦",
+          image: "/Dave007/image copy 30.png",
+        },
+        {
+          name: "Executive Office Chair",
+          price: "₦450k",
+          image: "/Dave007/image copy 19.png",
+        },
+        {
+          name: "Modern Dining Table",
+          price: "₦780",
+          image: "/Dave007/image copy 29.png",
+        },
+        {
+          name: "Boutique Shelf",
+          price: "Depends on the measurement",
+          image: "/Dave007/image copy 28.png",
+        },
+        {
+          name: "Complete Set",
+          price: "₦600k",
+          image: "/Dave007/image copy 27.png",
+        },
+        {
+          name: "Executive Office Chair",
+          price: "Set of this: ₦900K",
+          image: "/Dave007/image copy 26.png",
+        },
+        {
+          name: "Modern Dining Table",
+          price: "$780",
+          image: "https://images.unsplash.com/photo-1567016432779-094069958ea5?w=800",
+        },
+        {
+          name: "Luxury Sofa Set",
+          price: "₦",
+          image: "/Dave007/image copy 30.png",
+        },
+        {
+          name: "Executive Office Chair",
+          price: "$450",
+          image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=800",
+        },
+        {
+          name: "Modern Dining Table",
+          price: "$780",
+          image: "https://images.unsplash.com/photo-1567016432779-094069958ea5?w=800",
+        }
+      ];
     
-      hero.style.backgroundImage = `url(${slide.image})`;
-      heroTitle.textContent = slide.title;
-      heroSubtitle.textContent = slide.subtitle;
+      // ✅ Handle View Details click
+      document.querySelectorAll(".product-card .btn").forEach((btn, index) => {
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          currentProduct = products[index];
+          modalImage.src = currentProduct.image;
+          modalName.textContent = currentProduct.name;
+          modalPrice.textContent = "Price: " + currentProduct.price;
     
-      hero.classList.remove("fadeSlide");
-      void hero.offsetWidth; // restart animation
-      hero.classList.add("fadeSlide");
-    }
-    setInterval(changeHeroSlide, 4000);
+          // ✅ WhatsApp Buy Link
+          const message = encodeURIComponent(`Hello, I'm interested in buying: ${currentProduct.name} for ${currentProduct.price}`);
+          buyNowBtn.href = `https://wa.me/1234567890?text=${message}`;
     
+          // ✅ Load Reviews from localStorage
+          loadReviews();
     
-    /* ---------- REVIEWS SYSTEM WITH localStorage ---------- */
-    const reviewKey = "pmart_reviews";
-    let reviews = JSON.parse(localStorage.getItem(reviewKey)) || [];
-    
-    const reviewsContainer = document.getElementById("reviews-container");
-    const submitBtn = document.getElementById("submit-review");
-    const avgRatingDisplay = document.getElementById("average-rating");
-    
-    function renderReviews() {
-      reviewsContainer.innerHTML = "";
-      let totalRating = 0;
-    
-      reviews.forEach((review, index) => {
-        totalRating += review.rating;
-    
-        const div = document.createElement("div");
-        div.classList.add("review");
-        div.innerHTML = `
-          <strong>${review.name}</strong> 
-          <span>(${review.rating}⭐)</span>
-          <p>${review.text}</p>
-          <span class="delete-review" onclick="deleteReview(${index})">Delete</span>
-        `;
-        reviewsContainer.appendChild(div);
+          modal.style.display = "flex";
+        });
       });
     
-      // Update average rating
-      const avg = reviews.length ? (totalRating / reviews.length).toFixed(1) : 0;
-      avgRatingDisplay.textContent = avg;
+      // ✅ Close Modal
+      closeBtn.addEventListener("click", () => modal.style.display = "none");
+      window.addEventListener("click", (e) => {
+        if (e.target === modal) modal.style.display = "none";
+      });
     
-      localStorage.setItem(reviewKey, JSON.stringify(reviews));
-    }
+      // ✅ Submit Review
+      document.getElementById("submitReview").addEventListener("click", () => {
+        const name = document.getElementById("reviewerName").value.trim();
+        const avatar = document.getElementById("reviewerAvatar").value.trim() || "https://i.pravatar.cc/40"; // default avatar
+        const text = document.getElementById("reviewText").value.trim();
+        const rating = document.getElementById("reviewRating").value;
     
-    function deleteReview(index) {
-      reviews.splice(index, 1);
-      renderReviews();
-    }
+        if (!name || !text) {
+          alert("Please fill in your name and review.");
+          return;
+        }
     
-    submitBtn.addEventListener("click", () => {
-      const name = document.getElementById("reviewer-name").value.trim();
-      const text = document.getElementById("review-text").value.trim();
-      const rating = parseInt(document.getElementById("review-rating").value);
+        const review = {
+          name,
+          avatar,
+          text,
+          rating,
+          date: new Date().toLocaleDateString()
+        };
     
-      if (!name || !text) {
-        alert("Please enter name and review text!");
-        return;
+        let reviews = JSON.parse(localStorage.getItem(currentProduct.name)) || [];
+        reviews.push(review);
+        localStorage.setItem(currentProduct.name, JSON.stringify(reviews));
+    
+        loadReviews();
+    
+        document.getElementById("reviewerName").value = "";
+        document.getElementById("reviewerAvatar").value = "";
+        document.getElementById("reviewText").value = "";
+      });
+    
+      function loadReviews() {
+        reviewList.innerHTML = "";
+        let reviews = JSON.parse(localStorage.getItem(currentProduct.name)) || [];
+        if (reviews.length === 0) {
+          reviewList.innerHTML = "<p>No reviews yet. Be the first!</p>";
+        } else {
+          reviews.forEach(r => {
+            const div = document.createElement("div");
+            div.classList.add("review-item");
+            div.innerHTML = `
+              <img src="${r.avatar}" alt="${r.name}">
+              <div class="review-content">
+                <strong>${r.name}</strong> <span class="stars">${"⭐️".repeat(r.rating)}</span><br>
+                <small>${r.date}</small>
+                <p>${r.text}</p>
+              </div>
+            `;
+            reviewList.appendChild(div);
+          });
+        }
       }
-    
-      reviews.push({ name, text, rating });
-      renderReviews();
-    
-      // Clear input fields
-      document.getElementById("reviewer-name").value = "";
-      document.getElementById("review-text").value = "";
     });
-    
-    renderReviews(); // Load reviews on page load
     </script>
-    
-  
-
 </body>
 </html>
