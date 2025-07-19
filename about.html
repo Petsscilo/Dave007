@@ -27,7 +27,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 30px;
+      padding: 15px 20px;
       position: fixed;
       width: 100%;
       top: 0;
@@ -59,15 +59,25 @@
       border-bottom: 2px solid var(--primary);
     }
 
+    /* ✅ Hamburger stays far right */
     .hamburger {
       display: none;
-      margin-left: 25rem;
       font-size: 2rem;
       cursor: pointer;
       color: var(--primary);
+      margin-left: 460px; /* push hamburger to the right */
     }
 
-    /* ✅ Mobile Menu with slide-up animation */
+    @media(max-width: 768px){
+      .nav-links {
+        display: none;
+      }
+      .hamburger {
+        display: block; /* show hamburger only on mobile */
+      }
+    }
+
+    /* ✅ Mobile Slide-Up Menu */
     .mobile-menu {
       position: fixed;
       bottom: -100%;
@@ -76,7 +86,7 @@
       background: var(--dark);
       text-align: center;
       padding: 40px 20px;
-      transition: bottom 0.4s ease-in-out; /* smooth slide */
+      transition: bottom 0.4s ease-in-out;
       z-index: 999;
     }
 
@@ -84,7 +94,6 @@
       bottom: 0;
     }
 
-    /* Add a fade-in effect for links */
     .mobile-menu a {
       display: block;
       color: var(--primary);
@@ -227,14 +236,15 @@
       color: #fff;
     }
 
+    /* ✅ Ensure hero is below navbar on mobile */
     @media(max-width: 768px){
-      .nav-links{display:none;}
-      .hamburger{display:block;}
+      .about-hero {
+        margin-top: 60px;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- ✅ NAVBAR -->
   <nav class="navbar">
     <div class="logo">DAVE007</div>
     <ul class="nav-links">
@@ -244,12 +254,15 @@
       <li><a href="review.html">Reviews</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <div class="hamburger" id="hamburger">☰</div>
+    <!-- ✅ Hamburger stays on the far right -->
+    <div class="hamburger" id="hamburger">
+      <i class="fas fa-bars"></i>
+    </div>
   </nav>
-
+  
   <!-- ✅ MOBILE SLIDE-UP MENU -->
   <div class="mobile-menu" id="mobileMenu">
-    <div class="close-btn" id="closeMenu">×</div>
+    <div class="close-btn" id="closeMenu">&times;</div>
     <a href="index.html">Home</a>
     <a href="products.html">Products</a>
     <a href="about.html" class="active">About</a>
@@ -279,6 +292,7 @@
       </div>
       <div class="profile-circle">
         <img src="certificate.png" alt="Co-Founder Profile">
+      </div>
     </div>
   </section>
 

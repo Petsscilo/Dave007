@@ -24,7 +24,6 @@
       text-decoration: none;
     }
 
-    /* ✅ Navbar */
     .navbar {
       position: fixed;
       top: 0;
@@ -33,49 +32,36 @@
       background: #000;
       color: #fdd835; /* Yellow */
       display: flex;
-      justify-content: space-between;
+      justify-content: space-between; /* Keep logo left, hamburger right */
       align-items: center;
       padding: 15px 20px;
       z-index: 1000;
     }
-
-    .navbar .logo {
-      font-size: 1.6rem;
-      font-weight: 900;
-      color: #fdd835; /* Yellow */
-      letter-spacing: 2px;
-    }
-
+    
+    /* ✅ Adjust nav menu to appear between logo & hamburger on desktop */
     .navbar ul {
       display: flex;
       list-style: none;
       gap: 20px;
       transition: max-height 0.4s ease-in-out;
+      margin-left: auto;
+      margin-right: 40px; /* keeps it away from the hamburger */
     }
-
-    .navbar ul li a {
-      color: #fff;
-      font-weight: 500;
-      transition: 0.3s;
-    }
-
-    .navbar ul li a:hover,
-    .navbar ul li a.active {
-      color: #fdd835;
-      border-bottom: 2px solid #fdd835;
-      padding-bottom: 3px;
-    }
-
-    /* ✅ Hamburger */
+    
+    /* ✅ Keep hamburger far right */
     .hamburger {
-      display: none;
       font-size: 1.8rem;
       cursor: pointer;
-      color: #fff;
+      color: yellow;
+      order: 2;
     }
-
-    /* ✅ Mobile Menu */
+    
+    /* ✅ Mobile Mode */
     @media (max-width: 768px) {
+      .navbar {
+        justify-content: space-between;
+      }
+    
       .navbar ul {
         position: absolute;
         top: 60px;
@@ -85,22 +71,24 @@
         flex-direction: column;
         overflow: hidden;
         max-height: 0;
+        margin: 0;
       }
-
+    
       .navbar ul.show {
         max-height: 300px;
       }
-
+    
       .navbar ul li {
         text-align: center;
         padding: 15px;
         border-bottom: 1px solid #222;
       }
-
+    
       .hamburger {
         display: block;
       }
     }
+    
 
     /* ✅ Hero Section */
     .hero.small-hero {
@@ -274,17 +262,21 @@
 <body>
 
   <!-- ✅ Navbar -->
-  <nav class="navbar">
-    <div class="logo">DAVE007</div>
-    <ul id="nav-menu">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="products.html">Products</a></li>
-      <li><a href="about.html">About Us</a></li>
-      <li><a href="review.html">Reviews</a></li>
-      <li><a class="active" href="contact.html">Contact</a></li>
-    </ul>
-    <div class="hamburger" id="hamburger">☰</div>
-  </nav>
+<nav class="navbar">
+  <div class="logo">DAVE007</div>
+  
+  <!-- ✅ Hamburger on the right -->
+  <div class="hamburger" id="hamburger">☰</div>
+  
+  <ul id="nav-menu">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="products.html">Products</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="review.html">Reviews</a></li>
+    <li><a class="active" href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
 
   <!-- ✅ Hero -->
   <header class="hero small-hero">

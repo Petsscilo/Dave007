@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Reviews | DAVE007 Executive Furniture</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Customer reviews for DAVE007 Executive Furniture. Trusted by homes, hotels, and offices across Nigeria.">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     /* ✅ Colors */
@@ -15,34 +15,51 @@
       --text: #333;
     }
 
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Arial', sans-serif;
       background: #0a0a0a;
       color: var(--text);
+      margin: 0;
+      padding: 0;
     }
 
     /* ✅ Navbar */
     .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #000;
+      color: #fdd835;
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 15px 20px;
-      background: var(--secondary);
-      color: var(--primary);
-      position: sticky;
-      top: 0;
       z-index: 1000;
     }
+    
     .navbar .logo {
+      font-size: 1.5rem;
       font-weight: bold;
-      font-size: 1.4rem;
       color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
+    
     .navbar ul {
-      list-style: none;
       display: flex;
+      list-style: none;
       gap: 20px;
+      transition: max-height 0.4s ease-in-out;
+      margin-left: auto;
+      margin-right: 40px;
     }
+    
     .navbar ul li a {
       color: #fff;
       text-decoration: none;
@@ -53,14 +70,48 @@
     .navbar ul li a.active {
       color: var(--primary);
     }
-    .hamburger {
-      margin-left: 25rem;
-      display: none;
-      font-size: 24px;
-      cursor: pointer;
-      color: var(--primary);
-    }
 
+    /* ✅ Keep hamburger far right */
+    .hamburger {
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: yellow;
+      display: none;
+    }
+    
+    /* ✅ Mobile Mode */
+    @media (max-width: 768px) {
+      .navbar {
+        justify-content: space-between;
+      }
+    
+      .navbar ul {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: #000;
+        flex-direction: column;
+        overflow: hidden;
+        max-height: 0;
+        margin: 0;
+      }
+    
+      .navbar ul.show {
+        max-height: 300px;
+      }
+    
+      .navbar ul li {
+        text-align: center;
+        padding: 15px;
+        border-bottom: 1px solid #222;
+      }
+    
+      .hamburger {
+        display: block;
+      }
+    }
+    
     /* ✅ Hero Section */
     .hero.small-hero {
       background: url("https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=1600") center/cover no-repeat;
@@ -105,6 +156,10 @@
       border-radius: 12px;
       box-shadow: 0 3px 15px rgba(0,0,0,0.1);
       text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .review-card:hover {
+      transform: translateY(-5px);
     }
     .review-card img {
       width: 70px;
@@ -160,6 +215,8 @@
       padding: 12px;
       border: 1px solid #ddd;
       border-radius: 8px;
+      font-size: 1rem;
+      resize: none;
     }
     .review-form .btn {
       background: var(--secondary);
@@ -169,6 +226,7 @@
       border-radius: 8px;
       cursor: pointer;
       font-weight: bold;
+      transition: background 0.3s;
     }
     .review-form .btn:hover {
       background: var(--primary);
@@ -193,23 +251,13 @@
       color: #fff;
     }
 
-    /* ✅ Mobile */
-    @media (max-width: 768px) {
-      .navbar ul {
-        display: none;
-        flex-direction: column;
-        background: var(--secondary);
-        position: absolute;
-        top: 60px;
-        right: 0;
-        width: 200px;
-        padding: 15px;
+    /* ✅ Mobile tweaks */
+    @media (max-width: 500px) {
+      .hero-content h1 {
+        font-size: 2rem;
       }
-      .navbar ul.show {
-        display: flex;
-      }
-      .hamburger {
-        display: block;
+      .hero-content p {
+        font-size: 1rem;
       }
     }
   </style>
@@ -217,16 +265,19 @@
 <body>
 
   <!-- ✅ Navbar -->
-  <nav class="navbar">
+  <nav class="navbar" aria-label="Main navigation">
     <div class="logo">DAVE007</div>
-    <ul id="navLinks">
+    
+    <!-- ✅ Hamburger on the right -->
+    <div class="hamburger" id="hamburger" aria-label="Toggle menu">☰</div>
+    
+    <ul id="nav-menu">
       <li><a href="index.html">Home</a></li>
       <li><a href="products.html">Products</a></li>
       <li><a href="about.html">About Us</a></li>
-      <li><a class="active" href="review.html">Reviews</a></li>
+      <li><a href="review.html" class="active">Reviews</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <div class="hamburger" id="hamburger">☰</div>
   </nav>
 
   <!-- ✅ Hero -->
@@ -240,7 +291,7 @@
 
   <!-- ✅ Sample Reviews -->
   <section>
-    <h2 style="text-align:center;margin-top:30px;">✨ Customer Testimonials ✨</h2>
+    <h2 style="text-align:center;margin-top:80px;">✨ Customer Testimonials ✨</h2>
     <div class="reviews-grid" id="reviewsList">
       <!-- Pre-filled Reviews -->
       <div class="review-card">
@@ -271,7 +322,7 @@
     <h2 style="text-align:center;margin-top:40px;">📝 Leave a Review</h2>
     <form class="review-form" id="reviewForm">
       <input type="text" id="reviewerName" placeholder="Your Name" required>
-      <textarea id="reviewText" placeholder="Your Feedback" required></textarea>
+      <textarea id="reviewText" placeholder="Your Feedback" rows="4" required></textarea>
 
       <!-- ✅ Star Selection -->
       <div class="star-rating" id="selectStars">
@@ -290,58 +341,106 @@
   <footer class="footer">
     <p>© 2025 DAVE007 Executive Furniture Design. All Rights Reserved.</p>
     <div class="social-icons">
-      <a href="#"><i class="fab fa-facebook"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-whatsapp"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
     </div>
   </footer>
 
   <script>
-    // ✅ Hamburger Menu
-    document.getElementById('hamburger').addEventListener('click', () => {
-      document.getElementById('navLinks').classList.toggle('show');
-    });
+  // ✅ Hamburger Menu Toggle
+  document.getElementById('hamburger').addEventListener('click', () => {
+    document.getElementById('nav-menu').classList.toggle('show');
+  });
 
-    // ✅ Star Selection
-    let selectedRating = 0;
-    document.querySelectorAll('#selectStars .star').forEach(star => {
-      star.addEventListener('click', function() {
-        selectedRating = this.dataset.value;
-        document.querySelectorAll('#selectStars .star').forEach(s => s.classList.remove('selected'));
-        for (let i = 0; i < selectedRating; i++) {
-          document.querySelectorAll('#selectStars .star')[i].classList.add('selected');
-        }
-      });
-    });
-
-    // ✅ Handle Review Submission
-    document.getElementById('reviewForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      let name = document.getElementById('reviewerName').value;
-      let text = document.getElementById('reviewText').value;
-      let stars = "⭐".repeat(selectedRating);
-
-      // ✅ Random Unsplash profile pic
-      let profilePic = `https://source.unsplash.com/100x100/?portrait,face&sig=${Math.random()}`;
-
-      // ✅ Create new review card
-      let newReview = `
-        <div class="review-card">
-          <img src="${profilePic}" alt="${name}">
-          <div class="star-rating">${stars}</div>
-          <p>“${text}”</p>
-          <h4>${name}</h4>
-        </div>
-      `;
-      document.getElementById('reviewsList').insertAdjacentHTML('beforeend', newReview);
-
-      // ✅ Reset form
-      document.getElementById('reviewForm').reset();
+  // ✅ Star Rating Selection
+  let selectedRating = 0;
+  document.querySelectorAll('#selectStars .star').forEach(star => {
+    star.addEventListener('click', function() {
+      selectedRating = this.dataset.value;
       document.querySelectorAll('#selectStars .star').forEach(s => s.classList.remove('selected'));
-      selectedRating = 0;
+      for (let i = 0; i < selectedRating; i++) {
+        document.querySelectorAll('#selectStars .star')[i].classList.add('selected');
+      }
     });
-  </script>
+  });
 
-</body>
+  // ✅ Load reviews from localStorage on page load
+  function loadReviews() {
+    let savedReviews = JSON.parse(localStorage.getItem('reviews')) || [];
+    savedReviews.forEach(review => {
+      addReviewToDOM(review.name, review.text, review.rating, review.image, false);
+    });
+    revealOnScroll(); // animate loaded reviews
+  }
+
+  // ✅ Save review to localStorage
+  function saveReview(name, text, rating, image) {
+    let savedReviews = JSON.parse(localStorage.getItem('reviews')) || [];
+    savedReviews.push({ name, text, rating, image });
+    localStorage.setItem('reviews', JSON.stringify(savedReviews));
+  }
+
+  // ✅ Add a review to the DOM
+  function addReviewToDOM(name, text, rating, image, animate = true) {
+    let stars = "⭐".repeat(rating || 5);
+    let newReview = document.createElement("div");
+    newReview.classList.add("review-card");
+    if (!animate) newReview.classList.add("visible"); // skip animation for loaded reviews
+
+    newReview.innerHTML = `
+      <img src="${image}" alt="${name}">
+      <div class="star-rating">${stars}</div>
+      <p>“${text}”</p>
+      <h4>${name}</h4>
+    `;
+
+    document.getElementById("reviewsList").appendChild(newReview);
+  }
+
+  // ✅ Handle Review Submission
+  document.getElementById('reviewForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    let name = document.getElementById('reviewerName').value.trim();
+    let text = document.getElementById('reviewText').value.trim();
+    let rating = selectedRating || 5; // default 5 if none selected
+
+    // ✅ Always fetch a truly fresh Unsplash portrait (cache-busting)
+    let randomImage = `https://source.unsplash.com/100x100/?portrait,face&sig=${Math.floor(Math.random() * 100000)}&t=${Date.now()}`;
+
+    // ✅ Add review to DOM
+    addReviewToDOM(name, text, rating, randomImage);
+
+    // ✅ Save review in localStorage
+    saveReview(name, text, rating, randomImage);
+
+    // ✅ Reset form
+    document.getElementById('reviewForm').reset();
+    document.querySelectorAll('#selectStars .star').forEach(s => s.classList.remove('selected'));
+    selectedRating = 0;
+
+    revealOnScroll();
+  });
+
+  // ✅ Scroll Animation
+  function revealOnScroll() {
+    document.querySelectorAll('.review-card').forEach(card => {
+      let rect = card.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 50) {
+        card.classList.add('visible');
+      }
+    });
+  }
+
+  // ✅ Load saved reviews on startup
+  window.addEventListener('load', () => {
+    loadReviews();
+    revealOnScroll();
+  });
+
+  window.addEventListener('scroll', revealOnScroll);
+</script>
+  </body>
 </html>

@@ -29,7 +29,7 @@ body {
   text-align: center;
   
   /* 🌟 Soft Animated Gradient */
-  background: linear-gradient(270deg, #1e3c72, #2a5298, #6a11cb, #2575fc);
+  background: linear-gradient(270deg, yellow, #2a5298, rgb(7, 7, 7), yellow, black);
   background-size: 800% 800%;
   animation: gradientMove 15s ease infinite;
 }

@@ -6,6 +6,40 @@
   <title>DAVE007 | Executive Furniture Design</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* ✅ Floating Ad Styling */
+#floatingAd {
+  display: none; /* Hidden initially */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #fff;
+  border: 2px solid #fdd835;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  padding: 10px;
+  text-align: center;
+  z-index: 9999;
+}
+
+
+#floatingAd img {
+  width: 250px;
+  border-radius: 8px;
+  height: 170px;
+}
+
+#floatingAd button {
+  margin-top: 8px;
+  background: #000;
+  color: #fdd835;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+  </style>
 </head>
 <body>
 
@@ -33,13 +67,19 @@
   </header>
 
   <!-- ✅ FLOATING PROMO AD -->
-  <div class="floating-ad" id="floatingAd">
-    <span class="floating-close" id="closeAd">&times;</span>
-    <div class="floating-ad-content">
-      <h3>Modern Sofa Set</h3>
-      <p>Upgrade your living room with 20% OFF today!</p>
-    </div>
-  </div>
+  <!-- ✅ Floating Ad -->
+    <div id="floatingAd">
+   <!-- Ad Image -->
+   <img src="imagecopy21.png" alt="Special Offer">
+    <p>Get 20% off on your first order!</p>
+    <p>Use code: <strong>DAVE20</strong></p>
+    <!-- Ad Link -->
+    <a href="products.html" class="ad-link" style="color: #fdd835;" id="pro">Shop Now</a>
+
+   <!-- Close Button -->
+   <button id="closeAd">Close</button>
+</div>
+
 
   <!-- ✅ SLIDE MENU (SAME ON ALL PAGES) -->
   <div class="slide-menu" id="slideMenu">
